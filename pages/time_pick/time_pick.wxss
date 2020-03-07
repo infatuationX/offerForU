@@ -1,0 +1,234 @@
+/* pages/time_pick/time_pick.wxss */
+/* 文字排版 */
+.time_pick_words{
+  margin-top: 28rpx;
+  margin-left: 80rpx;
+  font-size: 24rpx;
+  color: #888888;
+}
+
+.time{
+  color: #03A7F0;
+} 
+
+/* 日历头 */
+.calendar_title{
+  margin: 24rpx 80rpx;
+  border-radius: 5px;
+  background: linear-gradient(to right,rgba(0, 0, 0, 0.1),rgba(0, 0, 0, 0.03),rgba(0, 0, 0, 0.01),rgba(0, 0, 0, 0.03),rgba(0, 0, 0, 0.1));
+  height: 80rpx;
+  display: flex;
+  align-items: center;
+}
+
+.inline{
+  display: inline-block;
+}
+
+/* 星期 */
+.day{
+  font-size: 16rpx;
+}
+
+.date{
+  font-size: 32rpx;
+}
+
+.today{
+  width: 54rpx;
+}
+/* 日期 */
+.date_detail{
+  width: 134rpx;
+  justify-content: center;
+  text-align: center;
+}
+
+
+
+.time_line{
+  margin: 0 80rpx 0 80rpx;
+  vertical-align: top;
+}
+
+/* 选择块 */
+/* 白块 */
+.select_block_white{
+  display: inline-block;
+  width: 134rpx;
+  height: 64rpx;
+  border-top: 1px solid #D8D8D8;
+}
+
+/* 灰块 */
+.select_block_gray{
+  display: inline-block;
+  width: 134rpx;
+  height: 64rpx;
+  border-top: 1px solid #D8D8D8;
+  background-color: #FCFBFC;
+}
+
+.select_block_blue{
+  display: inline-block;
+  width: 134rpx;
+  height: 64rpx;
+  border-top: 1px solid #D8D8D8;
+  background-color: #03A7F0;
+}
+
+.select_block_blue1{
+  display: inline-block;
+  width: 134rpx;
+  height: 64rpx;
+  border-top: 1px solid #D8D8D8;
+  border-bottom: 1px solid #D8D8D8;
+  background-color: #03A7F0;
+}
+
+
+.select_block_white1{
+  display: inline-block;
+  width: 134rpx;
+  height: 64rpx;
+  border-top: 1px solid #D8D8D8;
+  border-bottom: 1px solid #D8D8D8;
+}
+
+/* 灰块 */
+.select_block_gray1{
+  display: inline-block;
+  width: 134rpx;
+  height: 64rpx;
+  border-bottom: 1px solid #D8D8D8;
+  border-top: 1px solid #D8D8D8;
+  background-color: #FCFBFC;
+}
+
+/* 禁止选择 */
+.select_block_disable{
+  display: inline-block;
+  width: 134rpx;
+  height: 64rpx;
+  border-top: 1px solid #D8D8D8;
+  background-color: #D9D9D9;
+}
+
+.select_block_disable1{
+  display: inline-block;
+  width: 134rpx;
+  height: 64rpx;
+  border-top: 1px solid #D8D8D8;
+  border-bottom: 1px solid #D8D8D8;
+  background-color: #D9D9D9;
+}
+
+.select_block{
+  height: 64rpx;
+}
+
+/* 时间 */
+.clock{
+  font-size: 16rpx;
+  color: #888888;
+  width: 54rpx;
+  height: 64rpx;
+}
+
+/* 确定按钮 */
+
+.conform_button_blue{
+  background-color: #03A7F0;
+  color: white;
+  width: 276rpx;
+  margin-left: 38rpx;
+}
+
+.conform_button_gray{
+  color: #D9D9D9;
+  background-color: #F3F3F3;
+  width: 276rpx;
+  margin-left: 38rpx;
+}
+
+/* 重置按钮 */
+
+.reset_button{
+  width: 276rpx;
+  color: #888888;
+  background-color:white;
+  margin-left: 80rpx;
+}
+
+.button_all{
+  position: fixed;
+  width: 100%;
+  bottom: 0rpx;
+  background-color: white;
+  padding-bottom: 40rpx;
+}
+
+/* 底部白色块 */
+.small_white_block{
+  height: 180rpx;
+}
+
+
+/* 白色遮罩块 */
+.white_block{
+  width: 80rpx;
+  height: 80rpx;
+  background-color: white;
+  z-index: 999;
+}
+
+.white_block2{
+  height: 80rpx;
+  background-color: white;
+  z-index: 999;
+}
+
+.left{
+  position: fixed;
+  left: 0;
+  top: 120rpx;
+}
+
+.right{
+  position: fixed;
+  top: 120rpx;
+  right: 0;
+}
+
+/* 固定头部位置 */
+.time_pick_title{
+  position: fixed;
+  top:0;
+  background-color: white;
+  z-index: 999;
+}
+
+.big_white_block{
+  height: 220rpx;
+}
+
+/* 向下三角 */
+.triangle_down {
+  display: inline-block;
+  position: relative;
+  top: 6rpx;
+  margin-left: 10rpx;
+  width: 0;
+  height: 0;
+  border: 10rpx solid transparent;
+  border-top-color: #b2b2b2;
+}
+
+.more_time{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 20rpx 0;
+  font-size: 20rpx;
+  color: #888888;
+}

@@ -1,0 +1,9 @@
+<!--pages/pay_success/pay_success.wxml-->
+<view class="pay_success">支付成功!</view>
+
+<view class="notes">导师确认时间后，您可以在【个人中心】-【我的预约】中查看详情，祝愿你收获满满！</view>
+
+<view class="notes2">•温馨提示：您可以提前下载meeting软件ZOOM，使用指南<navigator class="navigator">请点击这里</navigator></view>
+
+<view><button class="return_home_button" bindtap="returnHome">返回首页</button>
+</view>

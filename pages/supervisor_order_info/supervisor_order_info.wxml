@@ -1,0 +1,87 @@
+<!--pages/supervisor_order_info/supervisor_order_info.wxml-->
+<view>
+  <view class="progress">
+    <view class="progress_title_blue">导师确认</view>
+    <view class="progress_title_gray">指导进行</view>
+    <view class="progress_title_gray">评价学员</view>
+    <view class="progress_title_gray">获得报酬</view>
+  </view>
+
+  <!-- 进度条 -->
+  <view class="progress_bar">
+    <view class="point_blue"></view>
+    <view class="line_blue"></view>
+    <view class="line_gray"></view>
+    <view class="point_gray"></view>
+    <view class="line_gray"></view>
+    <view class="line_gray"></view>
+    <view class="point_gray"></view>
+    <view class="line_gray"></view>
+    <view class="line_gray"></view>
+    <view class="point_gray"></view>
+  </view>
+</view>
+
+<view class="head">
+  <view class="inline">
+    <image src="/images/ui/pic1.png" class="pic"></image>
+  </view>
+  <view class="inline head_words">
+    <view class="info_title">咨询-单次模拟面试加复盘</view>
+    <view class="info_name">导师-Betty</view>
+    <view class="info_exp">BCG | Associate | 60+case经验</view>
+    <view class="info_price">订单费用：
+      <text style="color:#03A7F0">￥247</text>
+    </view>
+  </view>
+</view>
+
+<!-- 分割线 -->
+<view class="border"></view>
+
+<view class="need">
+  <view class="need_title">需求细节</view>
+  <view class="need_detail">请同学把想要请教导师的细节问题补充清楚，方便导师提前了解你的情况并做针对性的准备 请同学把想要请教导师的细节问题补充清楚，方便导师提前了解你的情况并做针对性的准备请同学把想要请教导师的细节问题补充清楚，方便导师提前了解你的情况并做针对性的准备
+  </view>
+</view>
+
+<view class="border"></view>
+
+<view class="need" >
+  <view class="need_title">学员简历<text class = 'image_note'>点击图片查看简历</text></view>
+  <view class="upload_pic">
+    <image src='/images/ui/pic1.png' class="upload_image_style" mode="top"></image>
+  </view>
+</view>
+
+<view class="border"></view>
+
+<view class="need">
+  <view class="need_title">预约时间<text class="time_note">（请选择一个学员提供的指导时间）</text></view>
+  <radio-group bindchange="radioChange">
+    <view class="filter_item" wx:for = '{{timeSlot}}' wx:key = 'index'>
+      <radio class="radio_rewrite" value="{{item}}">{{item}}</radio>
+    </view>
+    <view class="filter_item">
+      <radio class="radio_rewrite" value="notAllowed">都不合适（如果选择此选项，请点击无法接受订单）</radio>
+    </view>
+  </radio-group>
+</view>
+
+<view class="border"></view>
+
+<view class="need">
+  <view class="payment">指导报酬:
+    <view class="point_small" wx:for='{{pointNumber}}' wx:key='index'></view>
+    <text style="color:#03A7F0">￥234</text>
+  </view>
+</view>
+
+<view class="button_all">
+  <view class="cancel_button">
+    <button bindtap="switchToReject">拒绝订单</button>
+  </view>
+  <view class="{{notAllowedFalg?'change_button':'disabled_button'}}">
+    <button>接受订单</button>
+  </view>
+</view>

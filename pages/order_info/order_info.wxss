@@ -1,0 +1,80 @@
+/* pages/order_info/order_info.wxss */
+/* 指导详情图片 */
+
+.pic{
+  width: 190rpx;
+  height: 146rpx;
+  border-radius: 5px;
+}
+
+.inline{
+  display: inline-block;
+}
+
+/* 详情头部 */
+.head{
+  margin-left: 80rpx;
+  margin-top: 54rpx;
+}
+/* 文字图片间距 */
+.head_words{
+  margin-left: 28rpx;
+}
+
+/* 详情标题 */
+.info_title{
+  font-size: 28rpx;
+  font-weight: bold;
+}
+
+/* 导师名字 */
+.info_name{
+  font-size: 24rpx;
+  margin-top: 10rpx;
+  font-weight: bold;
+}
+
+/* 导师经验 */
+.info_exp{
+  font-size: 20rpx;
+  color: #888888;
+}
+
+/* 导师报价 */
+.info_price{
+  font-size: 20rpx;
+  margin-top: 14rpx;
+}
+
+/* 边界 */
+.border{
+  margin: 40rpx 80rpx;
+  border: 1px solid #F3F3F3;
+}
+
+/* 服务内容 */
+.service{
+  margin: 0rpx 80rpx;
+}
+
+/* 服务内容标题 */
+.service_title{
+  font-size: 28rpx;
+  font-weight: bold;
+}
+
+.service_content{
+  color: #888888;
+  margin-top: 18rpx;
+  font-size: 28rpx;
+}
+
+/* 预约按钮 */
+.order_button{
+  width: 586rpx;
+  height: 94rpx;
+  line-height: 94rpx;
+  background-color: #03A7F0;
+  color:white;
+  margin-top: 160rpx;
+}

@@ -1,0 +1,304 @@
+<!--pages/apply/apply.wxml-->
+<navigationBar title="{{title}}" loading="{{true}}" back="{{true}}" class="navigationBar_style"></navigationBar>
+<!-- 个人背景 -->
+<view class="profile_background_style">
+  <image src="/images/ui/supervisor_background.png" class="profile_background"></image>
+  <view class="white_block"></view>
+</view>
+<view class="profile_photo_style">
+  <image src="/images/ui/profile_photo.png" class="profile_photo"></image>
+</view>
+
+<!-- 申请 -->
+<view class="apply_all">
+  <view class="requirements">
+    <text style="color:#03A7F0">*</text>申请条件：咨询、金融、互联网战略Offeree或在职；有丰富的求职经验，尤其是Mock准备经验，有意愿和时间为同学们提供辅导。</view>
+  <!-- 个人资料 -->
+  <view class="apply_profile_title">
+    <text style="color:#03A7F0;font-weight:bold">·</text> 个人资料</view>
+  <view>
+    <view class="{{inputFlag?'name_title1':'name_title'}}" bindtap="inputOn" data-id="0">
+      <text style="color:#03A7F0">*</text>真实姓名
+      <text style="font-size:20rpx;">（不会显示在导师主页上）</text>
+    </view>
+    <view hidden="{{!inputFlag}}">
+      <input class="input" focus="{{focusFlag}}" bindblur="inputOut"></input>
+    </view>
+  </view>
+
+  <view>
+    <view class="{{inputFlag1?'name_title1':'name_title'}}" bindtap="inputOn" data-id="1">
+      <text style="color:#03A7F0">*</text>昵称
+      <text style="font-size:20rpx;">（英文名或姓氏，显示在主页上）</text>
+    </view>
+    <view hidden="{{!inputFlag1}}">
+      <input class="input" focus="{{focusFlag1}}" bindblur="inputOut1"></input>
+    </view>
+  </view>
+
+  <view>
+    <view class="{{inputFlag2?'name_title1':'name_title'}}" bindtap="inputOn" data-id="2">
+      <text style="color:#03A7F0">*</text>在职 或 offeree</view>
+    <view hidden="{{!inputFlag2}}" class="radio_style">
+      <radio-group>
+        <radio class="radio_rewrite" checked="true">在职</radio>
+        <radio class="radio_rewrite radio2">offeree</radio>
+      </radio-group>
+    </view>
+  </view>
+
+  <view>
+    <view class="{{inputFlag3?'name_title1':'name_title'}}" bindtap="inputOn" data-id="3">
+      <text style="color:#03A7F0">*</text>公司名称</view>
+    <view hidden="{{!inputFlag3}}">
+      <input class="input" focus="{{focusFlag3}}" bindblur="inputOut3"></input>
+    </view>
+  </view>
+
+  <view>
+    <view class="{{inputFlag4?'name_title1':'name_title'}}" bindtap="inputOn" data-id="4">
+      <text style="color:#03A7F0">*</text>入职年份</view>
+    <view hidden="{{!inputFlag4}}">
+      <view class='select_box'>
+        <view class='select' catchtap='selectTap'>
+          <text class='select_text'>{{selectData[index]}} 年</text>
+        </view>
+        <view class="inline" catchtap='selectTap'>
+          <image class='select_img' src="{{show?'/images/ui/gobottom.png':'/images/ui/gobottom2.png'}}"></image>
+        </view>
+        <view class='option_box' style='height:{{show?(selectData.length>5?300:selectData.length*60):0}}rpx;'>
+          <text class='option' wx:for='{{selectData}}' wx:key='this' data-index='{{index}}' catchtap='optionTap'>{{item}}</text>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <view>
+    <view class="{{inputFlag5?'name_title1':'name_title'}}" bindtap="inputOn" data-id="5">
+      <text style="color:#03A7F0">*</text>当前职位</view>
+    <view hidden="{{!inputFlag5}}">
+      <input class="input" focus="{{focusFlag5}}" bindblur="inputOut5"></input>
+    </view>
+  </view>
+
+  <view>
+    <view class="{{inputFlag6?'name_title1':'name_title'}}" bindtap="inputOn" data-id="6">
+      <text style="color:#03A7F0">*</text>您当前毕业的高校名称</view>
+    <view hidden="{{!inputFlag6}}">
+      <input class="input" focus="{{focusFlag6}}" bindblur="inputOut6"></input>
+    </view>
+  </view>
+  <!-- 提供服务 -->
+  <view class="apply_profile_title">
+    <text style="color:#03A7F0;font-weight:bold">·</text> 提供服务</view>
+  <view class="introduce_title">
+    <text style="color:#03A7F0">*</text>个人介绍
+    <text style="font-size: 20rpx;">（20-100字，个人主页显示）</text>
+  </view>
+  <view>
+    <textarea class="introduce_textarea" placeholder="可以包括学术背景，求职offer情况，实习经历，案例大赛经历等" placeholder-class="introduce_textarea_placeholder"></textarea>
+  </view>
+  <!-- 边界 -->
+  <view class="border"></view>
+
+  <view class="introduce_title2">
+    <text style="color:#03A7F0">*</text>求职经历闪光点
+    <text style="font-size: 20rpx;">（50字以内，导师索引页显示）</text>
+  </view>
+  <view>
+    <textarea class="shiningpoints_textarea" placeholder="eg.BCG在职，腾讯战投offeree，Bain杯冠军，北大光华" placeholder-class="introduce_textarea_placeholder"></textarea>
+  </view>
+  <view class="border"></view>
+  <view class="introduce_title2">
+    <text style="color:#03A7F0">*</text>提供指导服务
+  </view>
+  <view>
+    <view class='select_box'>
+      <view class='select' catchtap='selectTap2'>
+        <text class='select_text'>{{service[index2]}}</text>
+      </view>
+      <view class="inline" catchtap='selectTap2'>
+        <image class='select_img' src="{{show2?'/images/ui/gobottom.png':'/images/ui/gobottom2.png'}}"></image>
+      </view>
+      <view class='option_box' style='height:{{show2?(selectData.length>5?300:selectData.length*60):0}}rpx;'>
+        <text class='option' wx:for='{{service}}' wx:key='this' data-index='{{index}}' catchtap='optionTap2'>{{item}}</text>
+      </view>
+    </view>
+    <view>
+      <textarea class="advantage_textarea" placeholder="您的优势（将显示给学员）：eg.我有50+的case准备经历，与很多个case partner进行过模拟面试，有很多2019年的real case可以帮助你练手，另外我英语表达能力较好，可以帮助你纠正表达陷阱。" placeholder-class="introduce_textarea_placeholder"></textarea>
+    </view>
+  </view>
+
+  <view hidden="{{serviceFlag3}}">
+    <view class='select_box'>
+      <view class='select' catchtap='selectTap3'>
+        <text class='select_text'>{{service[index3]}}</text>
+      </view>
+      <view class="inline" catchtap='selectTap3'>
+        <image class='select_img' src="{{show3?'/images/ui/gobottom.png':'/images/ui/gobottom2.png'}}"></image>
+      </view>
+      <view class='option_box' style='height:{{show3?(selectData.length>5?300:selectData.length*60):0}}rpx;'>
+        <text class='option' wx:for='{{service}}' wx:key='this' data-index='{{index}}' catchtap='optionTap3'>{{item}}</text>
+      </view>
+    </view>
+    <view>
+      <textarea class="advantage_textarea" placeholder="您的优势（将显示给学员）：eg.我有50+的case准备经历，与很多个case partner进行过模拟面试，有很多2019年的real case可以帮助你练手，另外我英语表达能力较好，可以帮助你纠正表达陷阱。" placeholder-class="introduce_textarea_placeholder"></textarea>
+    </view>
+  </view>
+
+  <view hidden="{{serviceFlag4}}">
+    <view class='select_box'>
+      <view class='select' catchtap='selectTap4'>
+        <text class='select_text'>{{service[index4]}}</text>
+      </view>
+      <view class="inline" catchtap='selectTap4'>
+        <image class='select_img' src="{{show4?'/images/ui/gobottom.png':'/images/ui/gobottom2.png'}}"></image>
+      </view>
+      <view class='option_box' style='height:{{show4?(selectData.length>5?300:selectData.length*60):0}}rpx;'>
+        <text class='option' wx:for='{{service}}' wx:key='this' data-index='{{index}}' catchtap='optionTap4'>{{item}}</text>
+      </view>
+    </view>
+    <view>
+      <textarea class="advantage_textarea" placeholder="您的优势（将显示给学员）：eg.我有50+的case准备经历，与很多个case partner进行过模拟面试，有很多2019年的real case可以帮助你练手，另外我英语表达能力较好，可以帮助你纠正表达陷阱。" placeholder-class="introduce_textarea_placeholder"></textarea>
+    </view>
+  </view>
+
+  <view hidden="{{serviceFlag5}}">
+    <view class='select_box'>
+      <view class='select' catchtap='selectTap5'>
+        <text class='select_text'>{{service[index5]}}</text>
+      </view>
+      <view class="inline" catchtap='selectTap5'>
+        <image class='select_img' src="{{show5?'/images/ui/gobottom.png':'/images/ui/gobottom2.png'}}"></image>
+      </view>
+      <view class='option_box' style='height:{{show5?(selectData.length>5?300:selectData.length*60):0}}rpx;'>
+        <text class='option' wx:for='{{service}}' wx:key='this' data-index='{{index}}' catchtap='optionTap5'>{{item}}</text>
+      </view>
+    </view>
+    <view>
+      <textarea class="advantage_textarea" placeholder="您的优势（将显示给学员）：eg.我有50+的case准备经历，与很多个case partner进行过模拟面试，有很多2019年的real case可以帮助你练手，另外我英语表达能力较好，可以帮助你纠正表达陷阱。" placeholder-class="introduce_textarea_placeholder"></textarea>
+    </view>
+  </view>
+  <view hidden="{{serviceFlag6}}">
+    <view class='select_box'>
+      <view class='select' catchtap='selectTap6'>
+        <text class='select_text'>{{service[index6]}}</text>
+      </view>
+      <view class="inline" catchtap='selectTap6'>
+        <image class='select_img' src="{{show6?'/images/ui/gobottom.png':'/images/ui/gobottom2.png'}}"></image>
+      </view>
+      <view class='option_box' style='height:{{show6?(selectData.length>5?300:selectData.length*60):0}}rpx;'>
+        <text class='option' wx:for='{{service}}' wx:key='this' data-index='{{index}}' catchtap='optionTap6'>{{item}}</text>
+      </view>
+    </view>
+    <view>
+      <textarea class="advantage_textarea" placeholder="您的优势（将显示给学员）：eg.我有50+的case准备经历，与很多个case partner进行过模拟面试，有很多2019年的real case可以帮助你练手，另外我英语表达能力较好，可以帮助你纠正表达陷阱。" placeholder-class="introduce_textarea_placeholder"></textarea>
+    </view>
+  </view>
+
+  <view hidden="{{serviceFlag7}}">
+    <view class='select_box'>
+      <view class='select' catchtap='selectTap7'>
+        <text class='select_text'>{{service[index7]}}</text>
+      </view>
+      <view class="inline" catchtap='selectTap7'>
+        <image class='select_img' src="{{show7?'/images/ui/gobottom.png':'/images/ui/gobottom2.png'}}"></image>
+      </view>
+      <view class='option_box' style='height:{{show7?(selectData.length>5?300:selectData.length*60):0}}rpx;'>
+        <text class='option' wx:for='{{service}}' wx:key='this' data-index='{{index}}' catchtap='optionTap7'>{{item}}</text>
+      </view>
+    </view>
+    <view>
+      <textarea class="advantage_textarea" placeholder="您的优势（将显示给学员）：eg.我有50+的case准备经历，与很多个case partner进行过模拟面试，有很多2019年的real case可以帮助你练手，另外我英语表达能力较好，可以帮助你纠正表达陷阱。" placeholder-class="introduce_textarea_placeholder"></textarea>
+    </view>
+  </view>
+  <view class="add_service" bindtap="addServiceItem" hidden="{{!serviceFlag7}}">+添加指导服务项目</view>
+
+  <view>
+    <view class="{{inputFlag7?'name_title1':'name_title'}}" bindtap="inputOn" data-id="7">
+      <text style="color:#03A7F0">*</text>偏好指导时间</view>
+    <view hidden="{{!inputFlag7}}">
+      <input class="input" focus="{{focusFlag7}}" bindblur="inputOut7"></input>
+    </view>
+  </view>
+
+  <view>
+    <view class="{{inputFlag8?'name_title1':'name_title'}}" bindtap="inputOn" data-id="8">
+      <text style="color:#03A7F0">*</text>是否接受2天内的加急服务</view>
+    <view hidden="{{!inputFlag8}}" class="radio_style">
+      <radio-group>
+        <radio class="radio_rewrite" checked="true">是</radio>
+        <radio class="radio_rewrite radio2">否</radio>
+      </radio-group>
+    </view>
+  </view>
+
+  <view>
+    <view class="{{inputFlag9?'name_title1':'name_title'}}" bindtap="inputOn" data-id="9">
+      <text style="color:#03A7F0">*</text>是否愿意参与求职资料和视频课程的制作</view>
+    <view hidden="{{!inputFlag9}}" class="radio_style">
+      <radio-group>
+        <radio class="radio_rewrite" checked="true">是</radio>
+        <radio class="radio_rewrite radio2">否</radio>
+      </radio-group>
+    </view>
+  </view>
+
+  <view>
+    <view class="{{inputFlag10?'name_title1':'name_title'}}" bindtap="inputOn" data-id="10">
+      <text style="color:#03A7F0">*</text>是否愿意做线上分享讲座</view>
+    <view hidden="{{!inputFlag10}}" class="radio_style">
+      <radio-group>
+        <radio class="radio_rewrite" checked="true">是</radio>
+        <radio class="radio_rewrite radio2">否</radio>
+      </radio-group>
+    </view>
+  </view>
+
+  <!-- 联系方式 -->
+  <view class="apply_profile_title">
+    <text style="color:#03A7F0;font-weight:bold">·</text> 联系方式</view>
+  <view>
+    <view class="{{inputFlag11?'name_title1':'name_title'}}" bindtap="inputOn" data-id="11">
+      <text style="color:#03A7F0">*</text>微信号<text style="font-size:20rpx;">（用于小助手联系）</text></view>
+    <view hidden="{{!inputFlag11}}">
+      <input class="input" focus="{{focusFlag11}}" bindblur="inputOut11"></input>
+    </view>
+  </view>
+
+  <view>
+    <view class="{{inputFlag12?'name_title1':'name_title'}}" bindtap="inputOn" data-id="12">
+      <text style="color:#03A7F0">*</text>邮箱<text style="font-size:20rpx;">（用于接收资料和会议链接）</text></view>
+    <view hidden="{{!inputFlag12}}">
+      <input class="input" focus="{{focusFlag12}}" bindblur="inputOut12"></input>
+    </view>
+  </view>
+
+  <view>
+    <view class="{{inputFlag13?'name_title1':'name_title'}}" bindtap="inputOn" data-id="13">
+      <text style="color:#03A7F0">*</text>手机号</view>
+    <view hidden="{{!inputFlag13}}">
+      <input class="input" focus="{{focusFlag13}}" bindblur="inputOut13"></input>
+    </view>
+  </view>
+
+  <!-- 证明材料 -->
+  <view class="apply_profile_title">
+    <text style="color:#03A7F0;font-weight:bold">·</text> 证明材料</view>
+  <view>
+    <view class="{{inputFlag14?'name_title1':'name_title'}}" bindtap="inputOn" data-id="14">
+      Linkedin链接</view>
+    <view hidden="{{!inputFlag14}}">
+      <input class="input" focus="{{focusFlag14}}" bindblur="inputOut14"></input>
+    </view>
+  </view>
+
+  <view class="upload_image">offer letter照片<text class="upload_image1">（含有姓名和公司即可）</text><text class="upload_image2">（已上传）</text>
+  <image src="/images/ui/upload.png" class="upload_icon"></image>
+  </view>
+
+  <view> <button class="submit_button">提交订单</button>
+  </view>
+  <view class="note"><text style="font-weight:bold">·</text>点击即代表您同意<navigator class="navigator">相关条款</navigator></view>
+</view>
+

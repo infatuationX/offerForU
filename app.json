@@ -1,0 +1,52 @@
+{
+  "pages": [
+    "pages/supervisor/supervisor",
+    "pages/user/user",
+    "pages/apply/apply",
+    "pages/supervisor_reject_order/supervisor_reject_order",
+    "pages/supervisor_order_info/supervisor_order_info",
+    "pages/rank/rank",
+    "pages/supervisor_info/supervisor_info",
+    "pages/time_pick/time_pick",
+    "pages/order_fill/order_fill",
+    "pages/user_order_complete/user_order_complete",
+    "pages/user_order/user_order",
+    "pages/user_order_info/user_order_info",
+    "pages/cancel_order/cancel_order",
+    "pages/user_evaluate/user_evaluate",
+    "pages/order_pay/order_pay", 
+    "pages/pay_success/pay_success",
+    "pages/order_info/order_info",
+    "pages/news/news",
+    "pages/index/index"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#F7F7F7",
+    "navigationBarTitleText": "OfferForU",
+    "navigationBarTextStyle": "black",
+    "navigationStyle": "default"
+  },
+  "tabBar": {
+    "selectedColor": "#03a7f0",
+    "list": [{
+      "pagePath": "pages/news/news",
+      "text": "资源",
+      "iconPath": "images/ui/news.png",
+      "selectedIconPath": "images/ui/news_selected.png"
+    },
+    {
+      "pagePath": "pages/supervisor/supervisor",
+      "text": "约MOCK",
+      "iconPath": "images/ui/mock.png",
+      "selectedIconPath": "images/ui/mock_selected.png"
+    },
+    {
+      "pagePath": "pages/user/user",
+      "text": "我的",
+      "iconPath": "images/ui/me.png",
+      "selectedIconPath": "images/ui/me_selected.png"
+    }]
+  },
+  "sitemapLocation": "sitemap.json"
+}

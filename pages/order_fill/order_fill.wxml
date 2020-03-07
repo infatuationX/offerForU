@@ -1,0 +1,65 @@
+<!--pages/order_fill/order_fill.wxml-->
+<view class="head">
+  <view class="inline">
+    <image src="/images/ui/pic1.png" class="pic"></image>
+  </view>
+  <view class="inline head_words">
+    <view class="info_title">咨询-单次模拟面试加复盘</view>
+    <view class="info_name">导师-Betty</view>
+    <view class="info_exp">BCG | Associate | 60+case经验</view>
+    <view class="info_price">订单费用：
+      <text style="color:#03A7F0">￥247</text>
+    </view>
+  </view>
+</view>
+
+<!-- 分割线 -->
+<view class="border"></view>
+
+<!-- 预约时间选择 -->
+<view class="select_time">
+  <view class="select_time_title">预约时间选择
+    <text style="color:#03A7F0">*</text>
+    <navigator class="navigator_toTimePick" url="/pages/time_pick/time_pick">{{timeFlag?'点击选择具体时间':'点击修改具体时间'}}</navigator>
+  </view>
+  <view class="time_not_select_words" hidden="{{!timeFlag}}">请勾选3-5个相差较远的1h单元，咨询师将从确定一个，最终预约时间可在【我的预约】中查看</view>
+  <view hidden="{{timeFlag}}">
+    <view class="time" wx:for='{{timeSelected}}' wx:key='index'>
+      <text style="color:#03A7F0">•</text>{{timeSelected[index]}}</view>
+  </view>
+</view>
+
+<!-- 分割线 -->
+<view class="border"></view>
+
+<!-- 需求细节 -->
+<view class="select_time">
+  <view class="select_time_title">需求细节
+    <text style="color:#03A7F0">*</text>
+  </view>
+  <textarea placeholder="请同学把想要请教导师的细节问题补充清楚，方便导师提前了解你的情况并做针对性的准备" class="textarea" placeholder-class="textarea_placeholder" bindinput="judgeInput" ></textarea>
+</view>
+<!-- 分割线 -->
+<view class="border"></view>
+
+<!-- 简历上传 -->
+<view class="select_time" >
+  <view class="select_time_title upload" bindtap="uploadImage">简历上传（可选）</view>
+  <view class="upload upload_icon_all" bindtap="uploadImage">
+    <image src="/images/ui/upload.png" class="upload_icon"></image>
+  </view>
+  <view wx:for="{{uploadImage}}" wx:key="index" class="uploaded" bindtap="previewImage" data-imgsrc="{{item}}" data-index="{{index}}" bindlongpress="deleteImage"><image src = '{{item}}' class="upload_image_style" mode="top"></image>
+  </view>
+</view>
+
+<!-- 分割线 -->
+<view class="border"></view>
+
+<view class="bottom_button">
+  <button class="{{buttonFlag?'submit_button_gray':'submit_button_blue'}}" bindtap="submitOrder">提交订单</button>
+
+<view class="provision">
+  <text>•点击即代表您已同意</text>
+  <navigator class="provision_navigator">相关条款</navigator>
+</view>
+</view>

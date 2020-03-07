@@ -1,0 +1,125 @@
+/* pages/cancel_order/cancel_order.wxss */
+.pic{
+  width: 190rpx;
+  height: 146rpx;
+  border-radius: 5px;
+}
+
+.inline{
+  display: inline-block;
+}
+
+/* 详情头部 */
+.head{
+  margin-left: 80rpx;
+  margin-top: 54rpx;
+}
+/* 文字图片间距 */
+.head_words{
+  margin-left: 28rpx;
+}
+
+/* 详情标题 */
+.info_title{
+  font-size: 28rpx;
+  font-weight: bold;
+}
+
+/* 导师名字 */
+.info_name{
+  font-size: 24rpx;
+  margin-top: 10rpx;
+  font-weight: bold;
+}
+
+/* 导师经验 */
+.info_exp{
+  font-size: 20rpx;
+  color: #888888;
+}
+
+/* 导师报价 */
+.info_price{
+  font-size: 20rpx;
+  margin-top: 14rpx;
+}
+
+/* 边界 */
+.border{
+  margin: 40rpx 80rpx;
+  border: 1px solid #F3F3F3;
+}
+
+/* 筛选 */
+
+.filter_item_all {
+  margin: 30rpx 80rpx;
+}
+
+.filter_item {
+  font-size: 24rpx;
+  margin-top: 20rpx;
+}
+
+/* 重写单选框 */
+
+.radio_rewrite .wx-radio-input{
+  width: 28rpx;
+  height: 28rpx;
+  border-radius: 5px;
+}
+
+.radio_rewrite .wx-radio-input.wx-radio-input-checked{
+  background-color: #03a7f0;
+  color: white;
+  border: 2rpx solid transparent;
+}
+
+.cancel_title{
+  font-size: 28rpx;
+  font-weight: bold;
+}
+
+.note{
+  font-size: 20rpx;
+  color: #565656;
+}
+
+/* 输入框 */
+.textarea_style{
+  background-color: #F7F7F7;
+  height: 190rpx;
+  margin-top: 30rpx;
+  padding: 12rpx 24rpx;
+  font-size: 28rpx;
+  width: 542rpx;
+}
+
+.textarea_placeholder{
+  color: #b2b2b2;
+  font-size: 24rpx;
+}
+
+
+/* 实付款 */
+.payment{
+  font-size: 24rpx;
+  color: #888888;
+}
+
+/* 点分割线 */
+.point_small{
+  border-radius: 50%;
+  height: 5rpx;
+  width: 5rpx;
+  background-color: #888888;
+  display: inline-block;
+  vertical-align: middle;
+  margin-left: 5rpx;
+}
+
+.cancel_button{
+  margin-top: 40rpx;
+  background-color: #03a7f0;
+  color: white;
+}

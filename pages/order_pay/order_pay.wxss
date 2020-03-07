@@ -1,0 +1,129 @@
+/* pages/order_pay/order_pay.wxss */
+/* 进度条 */
+.progress{
+  margin: 50rpx 81rpx 0 81rpx;
+}
+
+/* 进度条文字蓝 */
+.progress_title_blue{
+  font-size: 26rpx;
+  color: #03A7F0;
+  display: inline-block;
+  width: 147rpx;
+  text-align: center;
+}
+
+/* 进度条文字灰 */
+.progress_title_gray{
+  font-size: 26rpx;
+  color: #888888;
+  display: inline-block;
+  width: 147rpx;
+  text-align: center;
+}
+
+.pic{
+  width: 190rpx;
+  height: 146rpx;
+  border-radius: 5px;
+}
+
+.inline{
+  display: inline-block;
+}
+
+/* 详情头部 */
+.head{
+  margin-left: 80rpx;
+  margin-top: 54rpx;
+}
+/* 文字图片间距 */
+.head_words{
+  margin-left: 28rpx;
+}
+
+/* 详情标题 */
+.info_title{
+  font-size: 28rpx;
+  font-weight: bold;
+}
+
+/* 导师名字 */
+.info_name{
+  font-size: 24rpx;
+  margin-top: 10rpx;
+  font-weight: bold;
+}
+
+/* 导师经验 */
+.info_exp{
+  font-size: 20rpx;
+  color: #888888;
+}
+
+/* 导师报价 */
+.info_price{
+  font-size: 20rpx;
+  margin-top: 14rpx;
+}
+
+/* 边界 */
+.border{
+  margin: 40rpx 80rpx;
+  border: 1px solid #F3F3F3;
+}
+
+
+/* 提示 */
+.notes{
+  font-size: 24rpx;
+  color: #888888;
+  margin-left: 80rpx;
+}
+
+.conform_pay{
+  width: 590rpx;
+  background-color: #03A7F0;
+  color: white;
+  margin-top: 400rpx;
+}
+
+/* 圆点 */
+.point_blue{
+  border-radius: 50%;
+  background-color: #03A7F0;
+  width: 10rpx;
+  height: 10rpx;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.point_gray{
+  border-radius: 50%;
+  background-color: #D9D9D9;
+  width: 10rpx;
+  height: 10rpx;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+/* 连线 */
+.line_blue{
+  width: 68.3rpx;
+  height: 2rpx;
+  background-color:  #03A7F0;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.line_gray{
+  width: 68.3rpx;
+  height: 2rpx;
+  background-color:  #D9D9D9;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.progress_bar{
+  margin: 0rpx 150rpx;
+}

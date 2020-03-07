@@ -1,0 +1,624 @@
+<!--pages/time_pick/time_pick.wxml-->
+<!-- 时间选择文字 -->
+<view class="time_pick_title">
+  <view class="time_pick_words">
+    <view>请勾选
+      <text style="color:#03A7F0">【3-5】</text>个相差较远的1h单元</view>
+    <view>Betty导师的偏好时间是：
+      <text class="time">周末/工作日10点之后</text>
+    </view>
+  </view>
+ 
+  <!-- 阻挡动画白块 -->
+  <view class="white_block left"></view>
+  <view class="white_block2 right" style="width:{{rightNum}}px"></view>
+
+  <!-- 时间选择日历 -->
+  <!-- 日历抬头 -->
+  <view class="calendar_title" id="calendar">
+    <view class="date" wx:if="{{page == 1}}" bindtouchstart="touchStart" bindtouchmove="touchMove" bindtouchend="touchEnd" animation="{{ani1}}" data-page="1" >
+      <view class="inline day today">{{dateAll[0].week}}</view>
+      <view class="inline date_detail">{{dateAll[1].time}}
+        <text class="day">{{dateAll[1].week}}</text>
+      </view>
+      <view class="inline date_detail">{{dateAll[2].time}}
+        <text class="day">{{dateAll[2].week}}</text>
+      </view>
+      <view class="inline date_detail">{{dateAll[3].time}}
+        <text class="day">{{dateAll[3].week}}</text>
+      </view>
+      <view class="inline date_detail">{{dateAll[4].time}}
+        <text class="day">{{dateAll[4].week}}</text>
+      </view>
+    </view>
+
+    <view class="date" wx:if="{{page == 2}}" bindtouchstart="touchStart" bindtouchmove="touchMove" bindtouchend="touchEnd" animation="{{ani2}}" data-page="2">
+      <view class="inline day today">{{dateAll[4].week}}</view>
+      <view class="inline date_detail">{{dateAll[5].time}}
+        <text class="day">{{dateAll[5].week}}</text>
+      </view>
+      <view class="inline date_detail">{{dateAll[6].time}}
+        <text class="day">{{dateAll[6].week}}</text>
+      </view>
+      <view class="inline date_detail">{{dateAll[7].time}}
+        <text class="day">{{dateAll[7].week}}</text>
+      </view>
+      <view class="inline date_detail">{{dateAll[8].time}}
+        <text class="day">{{dateAll[8].week}}</text>
+      </view>
+    </view>
+
+    <view class="date" wx:if="{{page == 3}}" bindtouchstart="touchStart" bindtouchmove="touchMove" bindtouchend="touchEnd" animation="{{ani3}}" data-page="3">
+      <view class="inline day today">{{dateAll[8].week}}</view>
+      <view class="inline date_detail">{{dateAll[9].time}}
+        <text class="day">{{dateAll[9].week}}</text>
+      </view>
+      <view class="inline date_detail">{{dateAll[10].time}}
+        <text class="day">{{dateAll[10].week}}</text>
+      </view>
+      <view class="inline date_detail">{{dateAll[11].time}}
+        <text class="day">{{dateAll[11].week}}</text>
+      </view>
+      <view class="inline date_detail">{{dateAll[12].time}}
+        <text class="day">{{dateAll[12].week}}</text>
+      </view>
+    </view>
+  </view>
+</view>
+
+
+<!-- 日历主体 -->
+<!-- 时间 -->
+<!-- <view class="clock clock_plus">10:00</view>
+<view class="clock clock_plus1">11:00</view>
+<view class="clock clock_plus2">12:00</view>
+<view class="clock clock_plus3">13:00</view>
+<view class="clock clock_plus4">14:00</view>
+<view class="clock clock_plus5">15:00</view>
+<view class="clock clock_plus6">16:00</view>
+<view class="clock clock_plus7">17:00</view>
+<view class="clock clock_plus8">18:00</view>
+<view class="clock clock_plus9">19:00</view>
+<view class="clock clock_plus10">20:00</view>
+<view class="clock clock_plus11">21:00</view> -->
+
+<view class="big_white_block"></view>
+<!-- 选择区域 -->
+
+<view class="time_line">
+  <view class="inline clock_all">
+    <view class="clock">08:00</view>
+    <view class="clock">09:00</view>
+    <view class="clock">10:00</view>
+    <view class="clock">11:00</view>
+    <view class="clock">12:00</view>
+    <view class="clock">13:00</view>
+    <view class="clock">14:00</view>
+    <view class="clock">15:00</view>
+    <view class="clock">16:00</view>
+    <view class="clock">17:00</view>
+    <view class="clock">18:00</view>
+    <view class="clock">19:00</view>
+    <view class="clock">20:00</view>
+    <view class="clock">21:00</view>
+    <view class="clock">22:00</view>
+    <view class="clock">23:00</view>
+    <view class="clock" id="lastTime">24:00</view>
+    <view class="clock_block"></view>
+  </view>
+  <!-- 时间选择区域1 -->
+  <view class="inline" wx:if="{{page == 1}}" animation="{{ani4}}" bindtouchstart="touchStart" bindtouchmove="touchMove" bindtouchend="touchEnd" data-page="1">
+    <view class="select_block">
+      <view wx:if="{{!disabled[0][0]}}" class="{{selected[0][0]?'select_block_blue':'select_block_white'}}" bindtap="date_select" data-row="1" data-column="1"></view>
+      <view wx:else class="select_block_disable"></view>
+      <view wx:if="{{!disabled[0][1]}}" class="{{selected[0][1]?'select_block_blue':'select_block_gray'}}" bindtap="date_select" data-row="1" data-column="2"></view>
+      <view wx:else class="select_block_disable"></view>
+      <view wx:if="{{!disabled[0][2]}}" class="{{selected[0][2]?'select_block_blue':'select_block_white'}}" bindtap="date_select" data-row="1" data-column="3"></view>
+      <view wx:else class="select_block_disable"></view>
+      <view wx:if="{{!disabled[0][3]}}" class="{{selected[0][3]?'select_block_blue':'select_block_gray'}}" bindtap="date_select" data-row="1" data-column="4"></view>
+      <view wx:else class="select_block_disable"></view>
+    </view>
+
+    <view class="select_block">
+      <view wx:if="{{!disabled[1][0]}}" class="{{selected[1][0]?'select_block_blue':'select_block_white'}}" bindtap="date_select" data-row="2" data-column="1"></view>
+      <view wx:else class="select_block_disable"></view>
+      <view wx:if="{{!disabled[1][1]}}" class="{{selected[1][1]?'select_block_blue':'select_block_gray'}}" bindtap="date_select" data-row="2" data-column="2"></view>
+      <view wx:else class="select_block_disable"></view>
+      <view wx:if="{{!disabled[1][2]}}" class="{{selected[1][2]?'select_block_blue':'select_block_white'}}" bindtap="date_select" data-row="2" data-column="3"></view>
+      <view wx:else class="select_block_disable"></view>
+      <view wx:if="{{!disabled[1][3]}}" class="{{selected[1][3]?'select_block_blue':'select_block_gray'}}" bindtap="date_select" data-row="2" data-column="4"></view>
+      <view wx:else class="select_block_disable"></view>
+    </view>
+
+    <view class="select_block">
+      <view wx:if="{{!disabled[2][0]}}" class="{{selected[2][0]?'select_block_blue':'select_block_white'}}" bindtap="date_select" data-row="3" data-column="1"></view>
+      <view wx:else class="select_block_disable"></view>
+      <view wx:if="{{!disabled[2][1]}}" class="{{selected[2][1]?'select_block_blue':'select_block_gray'}}" bindtap="date_select" data-row="3" data-column="2"></view>
+      <view wx:else class="select_block_disable"></view>
+      <view wx:if="{{!disabled[2][2]}}" class="{{selected[2][2]?'select_block_blue':'select_block_white'}}" bindtap="date_select" data-row="3" data-column="3"></view>
+      <view wx:else class="select_block_disable"></view>
+      <view wx:if="{{!disabled[2][3]}}" class="{{selected[2][3]?'select_block_blue':'select_block_gray'}}" bindtap="date_select" data-row="3" data-column="4"></view>
+      <view wx:else class="select_block_disable"></view>
+    </view>
+    <view class="select_block">
+      <view wx:if="{{!disabled[3][0]}}" class="{{selected[3][0]?'select_block_blue':'select_block_white'}}" bindtap="date_select" data-row="4" data-column="1"></view>
+      <view wx:else class="select_block_disable"></view>
+      <view wx:if="{{!disabled[3][1]}}" class="{{selected[3][1]?'select_block_blue':'select_block_gray'}}" bindtap="date_select" data-row="4" data-column="2"></view>
+      <view wx:else class="select_block_disable"></view>
+      <view wx:if="{{!disabled[3][2]}}" class="{{selected[3][2]?'select_block_blue':'select_block_white'}}" bindtap="date_select" data-row="4" data-column="3"></view>
+      <view wx:else class="select_block_disable"></view>
+      <view wx:if="{{!disabled[3][3]}}" class="{{selected[3][3]?'select_block_blue':'select_block_gray'}}" bindtap="date_select" data-row="4" data-column="4"></view>
+      <view wx:else class="select_block_disable"></view>
+    </view>
+    <view class="select_block">
+      <view wx:if="{{!disabled[4][0]}}" class="{{selected[4][0]?'select_block_blue':'select_block_white'}}" bindtap="date_select" data-row="5" data-column="1"></view>
+      <view wx:else class="select_block_disable"></view>
+      <view wx:if="{{!disabled[4][1]}}" class="{{selected[4][1]?'select_block_blue':'select_block_gray'}}" bindtap="date_select" data-row="5" data-column="2"></view>
+      <view wx:else class="select_block_disable"></view>
+      <view wx:if="{{!disabled[4][2]}}" class="{{selected[4][2]?'select_block_blue':'select_block_white'}}" bindtap="date_select" data-row="5" data-column="3"></view>
+      <view wx:else class="select_block_disable"></view>
+      <view wx:if="{{!disabled[4][3]}}" class="{{selected[4][3]?'select_block_blue':'select_block_gray'}}" bindtap="date_select" data-row="5" data-column="4"></view>
+      <view wx:else class="select_block_disable"></view>
+    </view>
+    <view class="select_block">
+      <view wx:if="{{!disabled[5][0]}}" class="{{selected[5][0]?'select_block_blue':'select_block_white'}}" bindtap="date_select" data-row="6" data-column="1"></view>
+      <view wx:else class="select_block_disable"></view>
+      <view wx:if="{{!disabled[5][1]}}" class="{{selected[5][1]?'select_block_blue':'select_block_gray'}}" bindtap="date_select" data-row="6" data-column="2"></view>
+      <view wx:else class="select_block_disable"></view>
+      <view wx:if="{{!disabled[5][2]}}" class="{{selected[5][2]?'select_block_blue':'select_block_white'}}" bindtap="date_select" data-row="6" data-column="3"></view>
+      <view wx:else class="select_block_disable"></view>
+      <view wx:if="{{!disabled[5][3]}}" class="{{selected[5][3]?'select_block_blue':'select_block_gray'}}" bindtap="date_select" data-row="6" data-column="4"></view>
+      <view wx:else class="select_block_disable"></view>
+    </view>
+    <view class="select_block">
+      <view wx:if="{{!disabled[6][0]}}" class="{{selected[6][0]?'select_block_blue':'select_block_white'}}" bindtap="date_select" data-row="7" data-column="1"></view>
+      <view wx:else class="select_block_disable"></view>
+      <view wx:if="{{!disabled[6][1]}}" class="{{selected[6][1]?'select_block_blue':'select_block_gray'}}" bindtap="date_select" data-row="7" data-column="2"></view>
+      <view wx:else class="select_block_disable"></view>
+      <view wx:if="{{!disabled[6][2]}}" class="{{selected[6][2]?'select_block_blue':'select_block_white'}}" bindtap="date_select" data-row="7" data-column="3"></view>
+      <view wx:else class="select_block_disable"></view>
+      <view wx:if="{{!disabled[6][3]}}" class="{{selected[6][3]?'select_block_blue':'select_block_gray'}}" bindtap="date_select" data-row="7" data-column="4"></view>
+      <view wx:else class="select_block_disable"></view>
+    </view>
+    <view class="select_block">
+      <view wx:if="{{!disabled[7][0]}}" class="{{selected[7][0]?'select_block_blue':'select_block_white'}}" bindtap="date_select" data-row="8" data-column="1"></view>
+      <view wx:else class="select_block_disable"></view>
+      <view wx:if="{{!disabled[7][1]}}" class="{{selected[7][1]?'select_block_blue':'select_block_gray'}}" bindtap="date_select" data-row="8" data-column="2"></view>
+      <view wx:else class="select_block_disable"></view>
+      <view wx:if="{{!disabled[7][2]}}" class="{{selected[7][2]?'select_block_blue':'select_block_white'}}" bindtap="date_select" data-row="8" data-column="3"></view>
+      <view wx:else class="select_block_disable"></view>
+      <view wx:if="{{!disabled[7][3]}}" class="{{selected[7][3]?'select_block_blue':'select_block_gray'}}" bindtap="date_select" data-row="8" data-column="4"></view>
+      <view wx:else class="select_block_disable"></view>
+    </view>
+    <view class="select_block">
+      <view wx:if="{{!disabled[8][0]}}" class="{{selected[8][0]?'select_block_blue':'select_block_white'}}" bindtap="date_select" data-row="9" data-column="1"></view>
+      <view wx:else class="select_block_disable"></view>
+      <view wx:if="{{!disabled[8][1]}}" class="{{selected[8][1]?'select_block_blue':'select_block_gray'}}" bindtap="date_select" data-row="9" data-column="2"></view>
+      <view wx:else class="select_block_disable"></view>
+      <view wx:if="{{!disabled[8][2]}}" class="{{selected[8][2]?'select_block_blue':'select_block_white'}}" bindtap="date_select" data-row="9" data-column="3"></view>
+      <view wx:else class="select_block_disable"></view>
+      <view wx:if="{{!disabled[8][3]}}" class="{{selected[8][3]?'select_block_blue':'select_block_gray'}}" bindtap="date_select" data-row="9" data-column="4"></view>
+      <view wx:else class="select_block_disable"></view>
+    </view>
+    <view class="select_block">
+      <view wx:if="{{!disabled[9][0]}}" class="{{selected[9][0]?'select_block_blue':'select_block_white'}}" bindtap="date_select" data-row="10" data-column="1"></view>
+      <view wx:else class="select_block_disable"></view>
+      <view wx:if="{{!disabled[9][1]}}" class="{{selected[9][1]?'select_block_blue':'select_block_gray'}}" bindtap="date_select" data-row="10" data-column="2"></view>
+      <view wx:else class="select_block_disable"></view>
+      <view wx:if="{{!disabled[9][2]}}" class="{{selected[9][2]?'select_block_blue':'select_block_white'}}" bindtap="date_select" data-row="10" data-column="3"></view>
+      <view wx:else class="select_block_disable"></view>
+      <view wx:if="{{!disabled[9][3]}}" class="{{selected[9][3]?'select_block_blue':'select_block_gray'}}" bindtap="date_select" data-row="10" data-column="4"></view>
+      <view wx:else class="select_block_disable"></view>
+    </view>
+    <view class="select_block">
+      <view wx:if="{{!disabled[10][0]}}" class="{{selected[10][0]?'select_block_blue':'select_block_white'}}" bindtap="date_select" data-row="11" data-column="1"></view>
+      <view wx:else class="select_block_disable"></view>
+      <view wx:if="{{!disabled[10][1]}}" class="{{selected[10][1]?'select_block_blue':'select_block_gray'}}" bindtap="date_select" data-row="11" data-column="2"></view>
+      <view wx:else class="select_block_disable"></view>
+      <view wx:if="{{!disabled[10][2]}}" class="{{selected[10][2]?'select_block_blue':'select_block_white'}}" bindtap="date_select" data-row="11" data-column="3"></view>
+      <view wx:else class="select_block_disable"></view>
+      <view wx:if="{{!disabled[10][3]}}" class="{{selected[10][3]?'select_block_blue':'select_block_gray'}}" bindtap="date_select" data-row="11" data-column="4"></view>
+      <view wx:else class="select_block_disable"></view>
+    </view>
+    <view class="select_block">
+      <view wx:if="{{!disabled[11][0]}}" class="{{selected[11][0]?'select_block_blue':'select_block_white'}}" bindtap="date_select" data-row="12" data-column="1"></view>
+      <view wx:else class="select_block_disable"></view>
+      <view wx:if="{{!disabled[11][1]}}" class="{{selected[11][1]?'select_block_blue':'select_block_gray'}}" bindtap="date_select" data-row="12" data-column="2"></view>
+      <view wx:else class="select_block_disable"></view>
+      <view wx:if="{{!disabled[11][2]}}" class="{{selected[11][2]?'select_block_blue':'select_block_white'}}" bindtap="date_select" data-row="12" data-column="3"></view>
+      <view wx:else class="select_block_disable"></view>
+      <view wx:if="{{!disabled[11][3]}}" class="{{selected[11][3]?'select_block_blue':'select_block_gray'}}" bindtap="date_select" data-row="12" data-column="4"></view>
+      <view wx:else class="select_block_disable"></view>
+    </view>
+    <view class="select_block">
+      <view wx:if="{{!disabled[12][0]}}" class="{{selected[12][0]?'select_block_blue':'select_block_white'}}" bindtap="date_select" data-row="13" data-column="1"></view>
+      <view wx:else class="select_block_disable"></view>
+      <view wx:if="{{!disabled[12][1]}}" class="{{selected[12][1]?'select_block_blue':'select_block_gray'}}" bindtap="date_select" data-row="13" data-column="2"></view>
+      <view wx:else class="select_block_disable"></view>
+      <view wx:if="{{!disabled[12][2]}}" class="{{selected[12][2]?'select_block_blue':'select_block_white'}}" bindtap="date_select" data-row="13" data-column="3"></view>
+      <view wx:else class="select_block_disable"></view>
+      <view wx:if="{{!disabled[12][3]}}" class="{{selected[12][3]?'select_block_blue':'select_block_gray'}}" bindtap="date_select" data-row="13" data-column="4"></view>
+      <view wx:else class="select_block_disable"></view>
+    </view>
+    <view class="select_block">
+      <view wx:if="{{!disabled[13][0]}}" class="{{selected[13][0]?'select_block_blue':'select_block_white'}}" bindtap="date_select" data-row="14" data-column="1"></view>
+      <view wx:else class="select_block_disable"></view>
+      <view wx:if="{{!disabled[13][1]}}" class="{{selected[13][1]?'select_block_blue':'select_block_gray'}}" bindtap="date_select" data-row="14" data-column="2"></view>
+      <view wx:else class="select_block_disable"></view>
+      <view wx:if="{{!disabled[13][2]}}" class="{{selected[13][2]?'select_block_blue':'select_block_white'}}" bindtap="date_select" data-row="14" data-column="3"></view>
+      <view wx:else class="select_block_disable"></view>
+      <view wx:if="{{!disabled[13][3]}}" class="{{selected[13][3]?'select_block_blue':'select_block_gray'}}" bindtap="date_select" data-row="14" data-column="4"></view>
+      <view wx:else class="select_block_disable"></view>
+    </view>
+    <view class="select_block">
+      <view wx:if="{{!disabled[14][0]}}" class="{{selected[14][0]?'select_block_blue':'select_block_white'}}" bindtap="date_select" data-row="15" data-column="1"></view>
+      <view wx:else class="select_block_disable"></view>
+      <view wx:if="{{!disabled[14][1]}}" class="{{selected[14][1]?'select_block_blue':'select_block_gray'}}" bindtap="date_select" data-row="15" data-column="2"></view>
+      <view wx:else class="select_block_disable"></view>
+      <view wx:if="{{!disabled[14][2]}}" class="{{selected[14][2]?'select_block_blue':'select_block_white'}}" bindtap="date_select" data-row="15" data-column="3"></view>
+      <view wx:else class="select_block_disable"></view>
+      <view wx:if="{{!disabled[14][3]}}" class="{{selected[14][3]?'select_block_blue':'select_block_gray'}}" bindtap="date_select" data-row="15" data-column="4"></view>
+      <view wx:else class="select_block_disable"></view>
+    </view>
+
+    <view class="select_block">
+      <view wx:if="{{!disabled[15][0]}}" class="{{selected[15][0]?'select_block_blue1':'select_block_white1'}}" bindtap="date_select" data-row="16" data-column="1"></view>
+      <view wx:else class="select_block_disable1"></view>
+      <view wx:if="{{!disabled[15][1]}}" class="{{selected[15][1]?'select_block_blue1':'select_block_gray1'}}" bindtap="date_select" data-row="16" data-column="2"></view>
+      <view wx:else class="select_block_disable1"></view>
+      <view wx:if="{{!disabled[15][2]}}" class="{{selected[15][2]?'select_block_blue1':'select_block_white1'}}" bindtap="date_select" data-row="16" data-column="3"></view>
+      <view wx:else class="select_block_disable1"></view>
+      <view wx:if="{{!disabled[15][3]}}" class="{{selected[15][3]?'select_block_blue1':'select_block_gray1'}}" bindtap="date_select" data-row="16" data-column="4"></view>
+      <view wx:else class="select_block_disable1"></view>
+    </view>
+  </view>
+
+  <!-- 时间选择区域2 -->
+  <view class="inline" wx:if="{{page == 2}}" animation="{{ani5}}" bindtouchstart="touchStart" bindtouchmove="touchMove" bindtouchend="touchEnd" data-page="2">
+    <view class="select_block">
+      <view wx:if="{{!disabled[0][4]}}" class="{{selected[0][4]?'select_block_blue':'select_block_white'}}" bindtap="date_select" data-row="1" data-column="5"></view>
+      <view wx:else class="select_block_disable"></view>
+      <view wx:if="{{!disabled[0][5]}}" class="{{selected[0][5]?'select_block_blue':'select_block_gray'}}" bindtap="date_select" data-row="1" data-column="6"></view>
+      <view wx:else class="select_block_disable"></view>
+      <view wx:if="{{!disabled[0][6]}}" class="{{selected[0][6]?'select_block_blue':'select_block_white'}}" bindtap="date_select" data-row="1" data-column="3"></view>
+      <view wx:else class="select_block_disable"></view>
+      <view wx:if="{{!disabled[0][3]}}" class="{{selected[0][3]?'select_block_blue':'select_block_gray'}}" bindtap="date_select" data-row="1" data-column="4"></view>
+      <view wx:else class="select_block_disable"></view>
+    </view>
+
+    <view class="select_block">
+      <view wx:if="{{!disabled[1][4]}}" class="{{selected[1][4]?'select_block_blue':'select_block_white'}}" bindtap="date_select" data-row="2" data-column="5"></view>
+      <view wx:else class="select_block_disable"></view>
+      <view wx:if="{{!disabled[1][5]}}" class="{{selected[1][5]?'select_block_blue':'select_block_gray'}}" bindtap="date_select" data-row="2" data-column="6"></view>
+      <view wx:else class="select_block_disable"></view>
+      <view wx:if="{{!disabled[1][6]}}" class="{{selected[1][6]?'select_block_blue':'select_block_white'}}" bindtap="date_select" data-row="2" data-column="7"></view>
+      <view wx:else class="select_block_disable"></view>
+      <view wx:if="{{!disabled[1][7]}}" class="{{selected[1][7]?'select_block_blue':'select_block_gray'}}" bindtap="date_select" data-row="2" data-column="8"></view>
+      <view wx:else class="select_block_disable"></view>
+    </view>
+
+    <view class="select_block">
+      <view wx:if="{{!disabled[2][4]}}" class="{{selected[2][4]?'select_block_blue':'select_block_white'}}" bindtap="date_select" data-row="3" data-column="5"></view>
+      <view wx:else class="select_block_disable"></view>
+      <view wx:if="{{!disabled[2][5]}}" class="{{selected[2][5]?'select_block_blue':'select_block_gray'}}" bindtap="date_select" data-row="3" data-column="6"></view>
+      <view wx:else class="select_block_disable"></view>
+      <view wx:if="{{!disabled[2][6]}}" class="{{selected[2][6]?'select_block_blue':'select_block_white'}}" bindtap="date_select" data-row="3" data-column="7"></view>
+      <view wx:else class="select_block_disable"></view>
+      <view wx:if="{{!disabled[2][7]}}" class="{{selected[2][7]?'select_block_blue':'select_block_gray'}}" bindtap="date_select" data-row="3" data-column="8"></view>
+      <view wx:else class="select_block_disable"></view>
+    </view>
+    <view class="select_block">
+      <view wx:if="{{!disabled[3][4]}}" class="{{selected[3][4]?'select_block_blue':'select_block_white'}}" bindtap="date_select" data-row="4" data-column="5"></view>
+      <view wx:else class="select_block_disable"></view>
+      <view wx:if="{{!disabled[3][5]}}" class="{{selected[3][5]?'select_block_blue':'select_block_gray'}}" bindtap="date_select" data-row="4" data-column="6"></view>
+      <view wx:else class="select_block_disable"></view>
+      <view wx:if="{{!disabled[3][6]}}" class="{{selected[3][6]?'select_block_blue':'select_block_white'}}" bindtap="date_select" data-row="4" data-column="7"></view>
+      <view wx:else class="select_block_disable"></view>
+      <view wx:if="{{!disabled[3][7]}}" class="{{selected[3][7]?'select_block_blue':'select_block_gray'}}" bindtap="date_select" data-row="4" data-column="8"></view>
+      <view wx:else class="select_block_disable"></view>
+    </view>
+    <view class="select_block">
+      <view wx:if="{{!disabled[4][4]}}" class="{{selected[4][4]?'select_block_blue':'select_block_white'}}" bindtap="date_select" data-row="5" data-column="5"></view>
+      <view wx:else class="select_block_disable"></view>
+      <view wx:if="{{!disabled[4][5]}}" class="{{selected[4][5]?'select_block_blue':'select_block_gray'}}" bindtap="date_select" data-row="5" data-column="6"></view>
+      <view wx:else class="select_block_disable"></view>
+      <view wx:if="{{!disabled[4][6]}}" class="{{selected[4][6]?'select_block_blue':'select_block_white'}}" bindtap="date_select" data-row="5" data-column="7"></view>
+      <view wx:else class="select_block_disable"></view>
+      <view wx:if="{{!disabled[4][7]}}" class="{{selected[4][7]?'select_block_blue':'select_block_gray'}}" bindtap="date_select" data-row="5" data-column="8"></view>
+      <view wx:else class="select_block_disable"></view>
+    </view>
+    <view class="select_block">
+      <view wx:if="{{!disabled[5][4]}}" class="{{selected[5][4]?'select_block_blue':'select_block_white'}}" bindtap="date_select" data-row="6" data-column="5"></view>
+      <view wx:else class="select_block_disable"></view>
+      <view wx:if="{{!disabled[5][5]}}" class="{{selected[5][5]?'select_block_blue':'select_block_gray'}}" bindtap="date_select" data-row="6" data-column="6"></view>
+      <view wx:else class="select_block_disable"></view>
+      <view wx:if="{{!disabled[5][6]}}" class="{{selected[5][6]?'select_block_blue':'select_block_white'}}" bindtap="date_select" data-row="6" data-column="7"></view>
+      <view wx:else class="select_block_disable"></view>
+      <view wx:if="{{!disabled[5][7]}}" class="{{selected[5][7]?'select_block_blue':'select_block_gray'}}" bindtap="date_select" data-row="6" data-column="8"></view>
+      <view wx:else class="select_block_disable"></view>
+    </view>
+    <view class="select_block">
+      <view wx:if="{{!disabled[6][4]}}" class="{{selected[6][4]?'select_block_blue':'select_block_white'}}" bindtap="date_select" data-row="7" data-column="5"></view>
+      <view wx:else class="select_block_disable"></view>
+      <view wx:if="{{!disabled[6][5]}}" class="{{selected[6][5]?'select_block_blue':'select_block_gray'}}" bindtap="date_select" data-row="7" data-column="6"></view>
+      <view wx:else class="select_block_disable"></view>
+      <view wx:if="{{!disabled[6][6]}}" class="{{selected[6][6]?'select_block_blue':'select_block_white'}}" bindtap="date_select" data-row="7" data-column="7"></view>
+      <view wx:else class="select_block_disable"></view>
+      <view wx:if="{{!disabled[6][7]}}" class="{{selected[6][7]?'select_block_blue':'select_block_gray'}}" bindtap="date_select" data-row="7" data-column="8"></view>
+      <view wx:else class="select_block_disable"></view>
+    </view>
+    <view class="select_block">
+      <view wx:if="{{!disabled[7][4]}}" class="{{selected[7][4]?'select_block_blue':'select_block_white'}}" bindtap="date_select" data-row="8" data-column="5"></view>
+      <view wx:else class="select_block_disable"></view>
+      <view wx:if="{{!disabled[7][5]}}" class="{{selected[7][5]?'select_block_blue':'select_block_gray'}}" bindtap="date_select" data-row="8" data-column="6"></view>
+      <view wx:else class="select_block_disable"></view>
+      <view wx:if="{{!disabled[7][6]}}" class="{{selected[7][6]?'select_block_blue':'select_block_white'}}" bindtap="date_select" data-row="8" data-column="7"></view>
+      <view wx:else class="select_block_disable"></view>
+      <view wx:if="{{!disabled[7][7]}}" class="{{selected[7][7]?'select_block_blue':'select_block_gray'}}" bindtap="date_select" data-row="8" data-column="8"></view>
+      <view wx:else class="select_block_disable"></view>
+    </view>
+    <view class="select_block">
+      <view wx:if="{{!disabled[8][4]}}" class="{{selected[8][4]?'select_block_blue':'select_block_white'}}" bindtap="date_select" data-row="9" data-column="5"></view>
+      <view wx:else class="select_block_disable"></view>
+      <view wx:if="{{!disabled[8][5]}}" class="{{selected[8][5]?'select_block_blue':'select_block_gray'}}" bindtap="date_select" data-row="9" data-column="6"></view>
+      <view wx:else class="select_block_disable"></view>
+      <view wx:if="{{!disabled[8][6]}}" class="{{selected[8][6]?'select_block_blue':'select_block_white'}}" bindtap="date_select" data-row="9" data-column="7"></view>
+      <view wx:else class="select_block_disable"></view>
+      <view wx:if="{{!disabled[8][7]}}" class="{{selected[8][7]?'select_block_blue':'select_block_gray'}}" bindtap="date_select" data-row="9" data-column="8"></view>
+      <view wx:else class="select_block_disable"></view>
+    </view>
+    <view class="select_block">
+      <view wx:if="{{!disabled[9][4]}}" class="{{selected[9][4]?'select_block_blue':'select_block_white'}}" bindtap="date_select" data-row="10" data-column="5"></view>
+      <view wx:else class="select_block_disable"></view>
+      <view wx:if="{{!disabled[9][5]}}" class="{{selected[9][5]?'select_block_blue':'select_block_gray'}}" bindtap="date_select" data-row="10" data-column="6"></view>
+      <view wx:else class="select_block_disable"></view>
+      <view wx:if="{{!disabled[9][6]}}" class="{{selected[9][6]?'select_block_blue':'select_block_white'}}" bindtap="date_select" data-row="10" data-column="7"></view>
+      <view wx:else class="select_block_disable"></view>
+      <view wx:if="{{!disabled[9][7]}}" class="{{selected[9][7]?'select_block_blue':'select_block_gray'}}" bindtap="date_select" data-row="10" data-column="8"></view>
+      <view wx:else class="select_block_disable"></view>
+    </view>
+    <view class="select_block">
+      <view wx:if="{{!disabled[10][4]}}" class="{{selected[10][4]?'select_block_blue':'select_block_white'}}" bindtap="date_select" data-row="11" data-column="5"></view>
+      <view wx:else class="select_block_disable"></view>
+      <view wx:if="{{!disabled[10][5]}}" class="{{selected[10][5]?'select_block_blue':'select_block_gray'}}" bindtap="date_select" data-row="11" data-column="6"></view>
+      <view wx:else class="select_block_disable"></view>
+      <view wx:if="{{!disabled[10][6]}}" class="{{selected[10][6]?'select_block_blue':'select_block_white'}}" bindtap="date_select" data-row="11" data-column="7"></view>
+      <view wx:else class="select_block_disable"></view>
+      <view wx:if="{{!disabled[10][7]}}" class="{{selected[10][7]?'select_block_blue':'select_block_gray'}}" bindtap="date_select" data-row="11" data-column="8"></view>
+      <view wx:else class="select_block_disable"></view>
+    </view>
+    <view class="select_block">
+      <view wx:if="{{!disabled[11][4]}}" class="{{selected[11][4]?'select_block_blue':'select_block_white'}}" bindtap="date_select" data-row="12" data-column="5"></view>
+      <view wx:else class="select_block_disable"></view>
+      <view wx:if="{{!disabled[11][5]}}" class="{{selected[11][5]?'select_block_blue':'select_block_gray'}}" bindtap="date_select" data-row="12" data-column="6"></view>
+      <view wx:else class="select_block_disable"></view>
+      <view wx:if="{{!disabled[11][6]}}" class="{{selected[11][6]?'select_block_blue':'select_block_white'}}" bindtap="date_select" data-row="12" data-column="7"></view>
+      <view wx:else class="select_block_disable"></view>
+      <view wx:if="{{!disabled[11][7]}}" class="{{selected[11][7]?'select_block_blue':'select_block_gray'}}" bindtap="date_select" data-row="12" data-column="8"></view>
+      <view wx:else class="select_block_disable"></view>
+    </view>
+    <view class="select_block">
+      <view wx:if="{{!disabled[12][4]}}" class="{{selected[12][4]?'select_block_blue':'select_block_white'}}" bindtap="date_select" data-row="13" data-column="5"></view>
+      <view wx:else class="select_block_disable"></view>
+      <view wx:if="{{!disabled[12][5]}}" class="{{selected[12][5]?'select_block_blue':'select_block_gray'}}" bindtap="date_select" data-row="13" data-column="6"></view>
+      <view wx:else class="select_block_disable"></view>
+      <view wx:if="{{!disabled[12][6]}}" class="{{selected[12][6]?'select_block_blue':'select_block_white'}}" bindtap="date_select" data-row="13" data-column="7"></view>
+      <view wx:else class="select_block_disable"></view>
+      <view wx:if="{{!disabled[12][7]}}" class="{{selected[12][7]?'select_block_blue':'select_block_gray'}}" bindtap="date_select" data-row="13" data-column="8"></view>
+      <view wx:else class="select_block_disable"></view>
+    </view>
+    <view class="select_block">
+      <view wx:if="{{!disabled[13][4]}}" class="{{selected[13][4]?'select_block_blue':'select_block_white'}}" bindtap="date_select" data-row="14" data-column="5"></view>
+      <view wx:else class="select_block_disable"></view>
+      <view wx:if="{{!disabled[13][5]}}" class="{{selected[13][5]?'select_block_blue':'select_block_gray'}}" bindtap="date_select" data-row="14" data-column="6"></view>
+      <view wx:else class="select_block_disable"></view>
+      <view wx:if="{{!disabled[13][6]}}" class="{{selected[13][6]?'select_block_blue':'select_block_white'}}" bindtap="date_select" data-row="14" data-column="7"></view>
+      <view wx:else class="select_block_disable"></view>
+      <view wx:if="{{!disabled[13][7]}}" class="{{selected[13][7]?'select_block_blue':'select_block_gray'}}" bindtap="date_select" data-row="14" data-column="8"></view>
+      <view wx:else class="select_block_disable"></view>
+    </view>
+    <view class="select_block">
+      <view wx:if="{{!disabled[14][4]}}" class="{{selected[14][4]?'select_block_blue':'select_block_white'}}" bindtap="date_select" data-row="15" data-column="5"></view>
+      <view wx:else class="select_block_disable"></view>
+      <view wx:if="{{!disabled[14][5]}}" class="{{selected[14][5]?'select_block_blue':'select_block_gray'}}" bindtap="date_select" data-row="15" data-column="6"></view>
+      <view wx:else class="select_block_disable"></view>
+      <view wx:if="{{!disabled[14][6]}}" class="{{selected[14][6]?'select_block_blue':'select_block_white'}}" bindtap="date_select" data-row="15" data-column="7"></view>
+      <view wx:else class="select_block_disable"></view>
+      <view wx:if="{{!disabled[14][7]}}" class="{{selected[14][7]?'select_block_blue':'select_block_gray'}}" bindtap="date_select" data-row="15" data-column="8"></view>
+      <view wx:else class="select_block_disable"></view>
+    </view>
+
+    <view class="select_block">
+      <view wx:if="{{!disabled[15][4]}}" class="{{selected[15][4]?'select_block_blue1':'select_block_white1'}}" bindtap="date_select" data-row="16" data-column="5"></view>
+      <view wx:else class="select_block_disable1"></view>
+      <view wx:if="{{!disabled[15][5]}}" class="{{selected[15][5]?'select_block_blue1':'select_block_gray1'}}" bindtap="date_select" data-row="16" data-column="6"></view>
+      <view wx:else class="select_block_disable1"></view>
+      <view wx:if="{{!disabled[15][6]}}" class="{{selected[15][6]?'select_block_blue1':'select_block_white1'}}" bindtap="date_select" data-row="16" data-column="7"></view>
+      <view wx:else class="select_block_disable1"></view>
+      <view wx:if="{{!disabled[15][7]}}" class="{{selected[15][7]?'select_block_blue1':'select_block_gray1'}}" bindtap="date_select" data-row="16" data-column="8"></view>
+      <view wx:else class="select_block_disable1"></view>
+    </view>
+  </view>
+
+   <!-- 时间选择区域3 -->
+  <view class="inline" wx:if="{{page == 3}}" animation="{{ani6}}" bindtouchstart="touchStart" bindtouchmove="touchMove" bindtouchend="touchEnd" data-page="3">
+    <view class="select_block">
+      <view wx:if="{{!disabled[0][8]}}" class="{{selected[0][8]?'select_block_blue':'select_block_white'}}" bindtap="date_select" data-row="1" data-column="9"></view>
+      <view wx:else class="select_block_disable"></view>
+      <view wx:if="{{!disabled[0][9]}}" class="{{selected[0][9]?'select_block_blue':'select_block_gray'}}" bindtap="date_select" data-row="1" data-column="10"></view>
+      <view wx:else class="select_block_disable"></view>
+      <view wx:if="{{!disabled[0][10]}}" class="{{selected[0][10]?'select_block_blue':'select_block_white'}}" bindtap="date_select" data-row="1" data-column="11"></view>
+      <view wx:else class="select_block_disable"></view>
+      <view wx:if="{{!disabled[0][11]}}" class="{{selected[0][11]?'select_block_blue':'select_block_gray'}}" bindtap="date_select" data-row="1" data-column="12"></view>
+      <view wx:else class="select_block_disable"></view>
+    </view>
+
+    <view class="select_block">
+      <view wx:if="{{!disabled[1][8]}}" class="{{selected[1][8]?'select_block_blue':'select_block_white'}}" bindtap="date_select" data-row="2" data-column="9"></view>
+      <view wx:else class="select_block_disable"></view>
+      <view wx:if="{{!disabled[1][9]}}" class="{{selected[1][9]?'select_block_blue':'select_block_gray'}}" bindtap="date_select" data-row="2" data-column="10"></view>
+      <view wx:else class="select_block_disable"></view>
+      <view wx:if="{{!disabled[1][10]}}" class="{{selected[1][10]?'select_block_blue':'select_block_white'}}" bindtap="date_select" data-row="2" data-column="11"></view>
+      <view wx:else class="select_block_disable"></view>
+      <view wx:if="{{!disabled[1][11]}}" class="{{selected[1][11]?'select_block_blue':'select_block_gray'}}" bindtap="date_select" data-row="2" data-column="12"></view>
+      <view wx:else class="select_block_disable"></view>
+    </view>
+
+    <view class="select_block">
+      <view wx:if="{{!disabled[2][8]}}" class="{{selected[2][8]?'select_block_blue':'select_block_white'}}" bindtap="date_select" data-row="3" data-column="9"></view>
+      <view wx:else class="select_block_disable"></view>
+      <view wx:if="{{!disabled[2][9]}}" class="{{selected[2][9]?'select_block_blue':'select_block_gray'}}" bindtap="date_select" data-row="3" data-column="10"></view>
+      <view wx:else class="select_block_disable"></view>
+      <view wx:if="{{!disabled[2][10]}}" class="{{selected[2][10]?'select_block_blue':'select_block_white'}}" bindtap="date_select" data-row="3" data-column="11"></view>
+      <view wx:else class="select_block_disable"></view>
+      <view wx:if="{{!disabled[2][11]}}" class="{{selected[2][11]?'select_block_blue':'select_block_gray'}}" bindtap="date_select" data-row="3" data-column="12"></view>
+      <view wx:else class="select_block_disable"></view>
+    </view>
+    <view class="select_block">
+      <view wx:if="{{!disabled[3][8]}}" class="{{selected[3][8]?'select_block_blue':'select_block_white'}}" bindtap="date_select" data-row="4" data-column="9"></view>
+      <view wx:else class="select_block_disable"></view>
+      <view wx:if="{{!disabled[3][9]}}" class="{{selected[3][9]?'select_block_blue':'select_block_gray'}}" bindtap="date_select" data-row="4" data-column="10"></view>
+      <view wx:else class="select_block_disable"></view>
+      <view wx:if="{{!disabled[3][10]}}" class="{{selected[3][10]?'select_block_blue':'select_block_white'}}" bindtap="date_select" data-row="4" data-column="11"></view>
+      <view wx:else class="select_block_disable"></view>
+      <view wx:if="{{!disabled[3][11]}}" class="{{selected[3][11]?'select_block_blue':'select_block_gray'}}" bindtap="date_select" data-row="4" data-column="12"></view>
+      <view wx:else class="select_block_disable"></view>
+    </view>
+    <view class="select_block">
+      <view wx:if="{{!disabled[4][8]}}" class="{{selected[4][8]?'select_block_blue':'select_block_white'}}" bindtap="date_select" data-row="5" data-column="9"></view>
+      <view wx:else class="select_block_disable"></view>
+      <view wx:if="{{!disabled[4][9]}}" class="{{selected[4][9]?'select_block_blue':'select_block_gray'}}" bindtap="date_select" data-row="5" data-column="10"></view>
+      <view wx:else class="select_block_disable"></view>
+      <view wx:if="{{!disabled[4][10]}}" class="{{selected[4][10]?'select_block_blue':'select_block_white'}}" bindtap="date_select" data-row="5" data-column="11"></view>
+      <view wx:else class="select_block_disable"></view>
+      <view wx:if="{{!disabled[4][11]}}" class="{{selected[4][11]?'select_block_blue':'select_block_gray'}}" bindtap="date_select" data-row="5" data-column="12"></view>
+      <view wx:else class="select_block_disable"></view>
+    </view>
+    <view class="select_block">
+      <view wx:if="{{!disabled[5][8]}}" class="{{selected[5][8]?'select_block_blue':'select_block_white'}}" bindtap="date_select" data-row="6" data-column="9"></view>
+      <view wx:else class="select_block_disable"></view>
+      <view wx:if="{{!disabled[5][9]}}" class="{{selected[5][9]?'select_block_blue':'select_block_gray'}}" bindtap="date_select" data-row="6" data-column="10"></view>
+      <view wx:else class="select_block_disable"></view>
+      <view wx:if="{{!disabled[5][10]}}" class="{{selected[5][10]?'select_block_blue':'select_block_white'}}" bindtap="date_select" data-row="6" data-column="11"></view>
+      <view wx:else class="select_block_disable"></view>
+      <view wx:if="{{!disabled[5][11]}}" class="{{selected[5][11]?'select_block_blue':'select_block_gray'}}" bindtap="date_select" data-row="6" data-column="12"></view>
+      <view wx:else class="select_block_disable"></view>
+    </view>
+    <view class="select_block">
+      <view wx:if="{{!disabled[6][8]}}" class="{{selected[6][8]?'select_block_blue':'select_block_white'}}" bindtap="date_select" data-row="7" data-column="9"></view>
+      <view wx:else class="select_block_disable"></view>
+      <view wx:if="{{!disabled[6][9]}}" class="{{selected[6][9]?'select_block_blue':'select_block_gray'}}" bindtap="date_select" data-row="7" data-column="10"></view>
+      <view wx:else class="select_block_disable"></view>
+      <view wx:if="{{!disabled[6][10]}}" class="{{selected[6][10]?'select_block_blue':'select_block_white'}}" bindtap="date_select" data-row="7" data-column="11"></view>
+      <view wx:else class="select_block_disable"></view>
+      <view wx:if="{{!disabled[6][11]}}" class="{{selected[6][11]?'select_block_blue':'select_block_gray'}}" bindtap="date_select" data-row="7" data-column="12"></view>
+      <view wx:else class="select_block_disable"></view>
+    </view>
+    <view class="select_block">
+      <view wx:if="{{!disabled[7][8]}}" class="{{selected[7][8]?'select_block_blue':'select_block_white'}}" bindtap="date_select" data-row="8" data-column="9"></view>
+      <view wx:else class="select_block_disable"></view>
+      <view wx:if="{{!disabled[7][9]}}" class="{{selected[7][9]?'select_block_blue':'select_block_gray'}}" bindtap="date_select" data-row="8" data-column="10"></view>
+      <view wx:else class="select_block_disable"></view>
+      <view wx:if="{{!disabled[7][10]}}" class="{{selected[7][10]?'select_block_blue':'select_block_white'}}" bindtap="date_select" data-row="8" data-column="11"></view>
+      <view wx:else class="select_block_disable"></view>
+      <view wx:if="{{!disabled[7][11]}}" class="{{selected[7][11]?'select_block_blue':'select_block_gray'}}" bindtap="date_select" data-row="8" data-column="12"></view>
+      <view wx:else class="select_block_disable"></view>
+    </view>
+    <view class="select_block">
+      <view wx:if="{{!disabled[8][8]}}" class="{{selected[8][8]?'select_block_blue':'select_block_white'}}" bindtap="date_select" data-row="9" data-column="9"></view>
+      <view wx:else class="select_block_disable"></view>
+      <view wx:if="{{!disabled[8][9]}}" class="{{selected[8][9]?'select_block_blue':'select_block_gray'}}" bindtap="date_select" data-row="9" data-column="10"></view>
+      <view wx:else class="select_block_disable"></view>
+      <view wx:if="{{!disabled[8][10]}}" class="{{selected[8][10]?'select_block_blue':'select_block_white'}}" bindtap="date_select" data-row="9" data-column="11"></view>
+      <view wx:else class="select_block_disable"></view>
+      <view wx:if="{{!disabled[8][11]}}" class="{{selected[8][11]?'select_block_blue':'select_block_gray'}}" bindtap="date_select" data-row="9" data-column="12"></view>
+      <view wx:else class="select_block_disable"></view>
+    </view>
+    <view class="select_block">
+      <view wx:if="{{!disabled[9][8]}}" class="{{selected[9][8]?'select_block_blue':'select_block_white'}}" bindtap="date_select" data-row="10" data-column="9"></view>
+      <view wx:else class="select_block_disable"></view>
+      <view wx:if="{{!disabled[9][9]}}" class="{{selected[9][9]?'select_block_blue':'select_block_gray'}}" bindtap="date_select" data-row="10" data-column="10"></view>
+      <view wx:else class="select_block_disable"></view>
+      <view wx:if="{{!disabled[9][10]}}" class="{{selected[9][10]?'select_block_blue':'select_block_white'}}" bindtap="date_select" data-row="10" data-column="11"></view>
+      <view wx:else class="select_block_disable"></view>
+      <view wx:if="{{!disabled[9][11]}}" class="{{selected[9][11]?'select_block_blue':'select_block_gray'}}" bindtap="date_select" data-row="10" data-column="12"></view>
+      <view wx:else class="select_block_disable"></view>
+    </view>
+    <view class="select_block">
+      <view wx:if="{{!disabled[10][8]}}" class="{{selected[10][8]?'select_block_blue':'select_block_white'}}" bindtap="date_select" data-row="11" data-column="9"></view>
+      <view wx:else class="select_block_disable"></view>
+      <view wx:if="{{!disabled[10][9]}}" class="{{selected[10][9]?'select_block_blue':'select_block_gray'}}" bindtap="date_select" data-row="11" data-column="10"></view>
+      <view wx:else class="select_block_disable"></view>
+      <view wx:if="{{!disabled[10][10]}}" class="{{selected[10][10]?'select_block_blue':'select_block_white'}}" bindtap="date_select" data-row="11" data-column="11"></view>
+      <view wx:else class="select_block_disable"></view>
+      <view wx:if="{{!disabled[10][11]}}" class="{{selected[10][11]?'select_block_blue':'select_block_gray'}}" bindtap="date_select" data-row="11" data-column="12"></view>
+      <view wx:else class="select_block_disable"></view>
+    </view>
+    <view class="select_block">
+      <view wx:if="{{!disabled[11][8]}}" class="{{selected[11][8]?'select_block_blue':'select_block_white'}}" bindtap="date_select" data-row="12" data-column="9"></view>
+      <view wx:else class="select_block_disable"></view>
+      <view wx:if="{{!disabled[11][9]}}" class="{{selected[11][9]?'select_block_blue':'select_block_gray'}}" bindtap="date_select" data-row="12" data-column="10"></view>
+      <view wx:else class="select_block_disable"></view>
+      <view wx:if="{{!disabled[11][10]}}" class="{{selected[11][10]?'select_block_blue':'select_block_white'}}" bindtap="date_select" data-row="12" data-column="11"></view>
+      <view wx:else class="select_block_disable"></view>
+      <view wx:if="{{!disabled[11][11]}}" class="{{selected[11][11]?'select_block_blue':'select_block_gray'}}" bindtap="date_select" data-row="12" data-column="12"></view>
+      <view wx:else class="select_block_disable"></view>
+    </view>
+    <view class="select_block">
+      <view wx:if="{{!disabled[12][8]}}" class="{{selected[12][8]?'select_block_blue':'select_block_white'}}" bindtap="date_select" data-row="13" data-column="9"></view>
+      <view wx:else class="select_block_disable"></view>
+      <view wx:if="{{!disabled[12][9]}}" class="{{selected[12][9]?'select_block_blue':'select_block_gray'}}" bindtap="date_select" data-row="13" data-column="10"></view>
+      <view wx:else class="select_block_disable"></view>
+      <view wx:if="{{!disabled[12][10]}}" class="{{selected[12][10]?'select_block_blue':'select_block_white'}}" bindtap="date_select" data-row="13" data-column="11"></view>
+      <view wx:else class="select_block_disable"></view>
+      <view wx:if="{{!disabled[12][11]}}" class="{{selected[12][11]?'select_block_blue':'select_block_gray'}}" bindtap="date_select" data-row="13" data-column="12"></view>
+      <view wx:else class="select_block_disable"></view>
+    </view>
+    <view class="select_block">
+      <view wx:if="{{!disabled[13][8]}}" class="{{selected[13][8]?'select_block_blue':'select_block_white'}}" bindtap="date_select" data-row="14" data-column="9"></view>
+      <view wx:else class="select_block_disable"></view>
+      <view wx:if="{{!disabled[13][9]}}" class="{{selected[13][9]?'select_block_blue':'select_block_gray'}}" bindtap="date_select" data-row="14" data-column="10"></view>
+      <view wx:else class="select_block_disable"></view>
+      <view wx:if="{{!disabled[13][10]}}" class="{{selected[13][10]?'select_block_blue':'select_block_white'}}" bindtap="date_select" data-row="14" data-column="11"></view>
+      <view wx:else class="select_block_disable"></view>
+      <view wx:if="{{!disabled[13][11]}}" class="{{selected[13][11]?'select_block_blue':'select_block_gray'}}" bindtap="date_select" data-row="14" data-column="12"></view>
+      <view wx:else class="select_block_disable"></view>
+    </view>
+    <view class="select_block">
+      <view wx:if="{{!disabled[14][8]}}" class="{{selected[14][8]?'select_block_blue':'select_block_white'}}" bindtap="date_select" data-row="15" data-column="9"></view>
+      <view wx:else class="select_block_disable"></view>
+      <view wx:if="{{!disabled[14][9]}}" class="{{selected[14][9]?'select_block_blue':'select_block_gray'}}" bindtap="date_select" data-row="15" data-column="10"></view>
+      <view wx:else class="select_block_disable"></view>
+      <view wx:if="{{!disabled[14][10]}}" class="{{selected[14][10]?'select_block_blue':'select_block_white'}}" bindtap="date_select" data-row="15" data-column="11"></view>
+      <view wx:else class="select_block_disable"></view>
+      <view wx:if="{{!disabled[14][11]}}" class="{{selected[14][11]?'select_block_blue':'select_block_gray'}}" bindtap="date_select" data-row="15" data-column="12"></view>
+      <view wx:else class="select_block_disable"></view>
+    </view>
+
+    <view class="select_block">
+      <view wx:if="{{!disabled[15][8]}}" class="{{selected[15][8]?'select_block_blue1':'select_block_white1'}}" bindtap="date_select" data-row="16" data-column="9"></view>
+      <view wx:else class="select_block_disable1"></view>
+      <view wx:if="{{!disabled[15][9]}}" class="{{selected[15][9]?'select_block_blue1':'select_block_gray1'}}" bindtap="date_select" data-row="16" data-column="10"></view>
+      <view wx:else class="select_block_disable1"></view>
+      <view wx:if="{{!disabled[15][10]}}" class="{{selected[15][10]?'select_block_blue1':'select_block_white1'}}" bindtap="date_select" data-row="16" data-column="11"></view>
+      <view wx:else class="select_block_disable1"></view>
+      <view wx:if="{{!disabled[15][11]}}" class="{{selected[15][11]?'select_block_blue1':'select_block_gray1'}}" bindtap="date_select" data-row="16" data-column="12"></view>
+      <view wx:else class="select_block_disable1"></view>
+    </view>
+  </view>
+</view>
+
+<!-- 白色底部遮罩 -->
+<view class="small_white_block"></view>
+
+<view class="button_all">
+  <view class="more_time" hidden="{{moreTimeFlag}}">下滑显示更多时间
+    <view class="triangle_down"></view>
+  </view>
+  <view class="inline">
+    <button class="reset_button" bindtap='resetAll'>重置</button>
+  </view>
+  <view class="inline">
+    <button class="{{selectTimeFlag<2?'conform_button_gray':'conform_button_blue'}}" bindtap='conformSelect'>确定</button>
+  </view>
+</view>

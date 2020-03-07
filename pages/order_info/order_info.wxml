@@ -1,0 +1,37 @@
+<!--pages/order_info/order_info.wxml-->
+<view class="head">
+  <view class="inline">
+    <image src="/images/ui/pic1.png" class="pic"></image>
+  </view>
+  <view class="inline head_words">
+    <view class="info_title">咨询-单次模拟面试加复盘</view>
+    <view class="info_name">导师-Betty</view>
+    <view class="info_exp">BCG | Associate | 60+case经验</view>
+    <view class="info_price">订单费用：
+      <text style="color:#03A7F0">￥247</text>
+    </view>
+  </view>
+</view>
+
+<!-- 分割线 -->
+<view class="border"></view>
+
+<!-- 服务内容 -->
+<view class="service">
+  <view class="service_title">服务内容</view>
+  <view class="service_content">导师将使用咨询公司的面试真题按照规范面试流程进行模拟面试。在面试结束后，导师将就学生的案例分析方法，思维逻辑，商业insight, 表达交流等方面进行复盘。
+  </view>
+</view>
+
+<!-- 分割线 -->
+<view class="border"></view>
+
+<!-- 导师优势 -->
+<view class="service">
+  <view class="service_title">导师优势</view>
+  <view class="service_content">我有50+case经验，对面试官比较喜欢的case分析方法和思路比较有经验。另外，我在哥伦比亚大学读硕士，英语表达流畅，可以帮助你纠正表达陷阱。</view>
+</view>
+
+<view>
+  <button class="order_button" bindtap="switchToOrderFill">立即预约</button>
+</view>

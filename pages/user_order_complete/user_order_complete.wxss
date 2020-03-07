@@ -1,0 +1,201 @@
+/* pages/user_order_complete/user_order_complete.wxss */
+.progress{
+  margin: 50rpx 81rpx 0 81rpx;
+}
+
+/* 进度条文字蓝 */
+.progress_title_blue{
+  font-size: 26rpx;
+  color: #03A7F0;
+  display: inline-block;
+  width: 147rpx;
+  text-align: center;
+}
+
+/* 进度条文字灰 */
+.progress_title_gray{
+  font-size: 26rpx;
+  color: #888888;
+  display: inline-block;
+  width: 147rpx;
+  text-align: center;
+}
+
+.pic{
+  width: 190rpx;
+  height: 146rpx;
+  border-radius: 5px;
+}
+
+.inline{
+  display: inline-block;
+}
+
+/* 详情头部 */
+.head{
+  margin-left: 80rpx;
+  margin-top: 54rpx;
+}
+/* 文字图片间距 */
+.head_words{
+  margin-left: 28rpx;
+}
+
+/* 详情标题 */
+.info_title{
+  font-size: 28rpx;
+  font-weight: bold;
+}
+
+/* 导师名字 */
+.info_name{
+  font-size: 24rpx;
+  margin-top: 10rpx;
+  font-weight: bold;
+}
+
+/* 导师经验 */
+.info_exp{
+  font-size: 20rpx;
+  color: #888888;
+}
+
+/* 导师报价 */
+.info_price{
+  font-size: 20rpx;
+  margin-top: 14rpx;
+}
+
+/* 边界 */
+.border{
+  margin: 38rpx 80rpx;
+  border: 1px solid #F3F3F3;
+}
+
+/* 圆点 */
+.point_blue{
+  border-radius: 50%;
+  background-color: #03A7F0;
+  width: 10rpx;
+  height: 10rpx;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.point_gray{
+  border-radius: 50%;
+  background-color: #D9D9D9;
+  width: 10rpx;
+  height: 10rpx;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+/* 连线 */
+.line_blue{
+  width: 68.3rpx;
+  height: 2rpx;
+  background-color:  #03A7F0;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.line_gray{
+  width: 68.3rpx;
+  height: 2rpx;
+  background-color:  #D9D9D9;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.progress_bar{
+  margin: 0rpx 150rpx;
+}
+
+/* 需求 */
+.need{
+  margin: 0 80rpx;
+}
+
+.need_title{
+  font-size: 28rpx;
+  font-weight: bold;
+}
+
+.need_detail{
+  font-size: 24rpx;
+  color: #565656;
+  margin-top: 16rpx;
+}
+
+/* 评分 */
+.rank{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.rank_item{
+  display: inline-block;
+  font-size: 24rpx;
+  width: 250rpx;
+  margin-top: 10rpx;
+}
+.rank_all{
+  margin: 18rpx 20rpx;
+}
+
+/* 评分星星 */
+.star{
+  width: 24rpx;
+  height: 24rpx;
+}
+
+.star_style{
+  display: inline-block;
+}
+
+
+.payment{
+  font-size: 24rpx;
+  color: #888888;
+}
+/* 点分割线 */
+.point_small{
+  border-radius: 50%;
+  height: 5rpx;
+  width: 5rpx;
+  background-color: #888888;
+  display: inline-block;
+  vertical-align: middle;
+  margin-left: 5rpx;
+}
+
+
+/* 底部按钮 */
+.button_all{
+  margin: 48rpx 80rpx;
+}
+
+.cancel_button{
+  display: inline-block;
+  width: 276rpx;
+}
+
+.cancel_button button{
+  color: #888888;
+  background-color: white;
+}
+
+.change_button{
+  display: inline-block; 
+  width: 276rpx;
+  margin-left: 38rpx;
+}
+
+.change_button button{
+  color: white;
+  background-color: #03A7F0;
+}

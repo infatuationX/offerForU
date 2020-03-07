@@ -1,0 +1,51 @@
+<!--pages/user_order/user_order.wxml-->
+<!-- 状态栏 -->
+<view class="status_bar">
+  <view class="status_bar_item {{status1?'status_bar_item_selected':''}}" bindtap="statusClick1">待确认({{conformOrderNumber}})</view>
+  <view class="status_bar_item {{status2?'status_bar_item_selected':''}}" bindtap="statusClick2">进行中({{onGoingOrderNumber}})</view>
+  <view class="status_bar_item {{status3?'status_bar_item_selected':''}}" bindtap="statusClick3">已完成({{completeOrderNumber}})</view>
+</view>
+
+<view class="order_zero" hidden = '{{hiddenFlag}}'>暂时没有进行中的订单喔 :o</view>
+<!-- 占位块 -->
+<view class="block"></view>
+
+<view wx:for='{{conformOrderNumber}}' wx:key='index' hidden="{{!status1}}">
+  <view class="head" bindtap="switchToUserOrderInfo">
+    <view class="inline" >
+      <image src="/images/ui/pic1.png" class="pic"></image>
+    </view>
+    <view class="inline head_words">
+      <view class="info_title">咨询-单次模拟面试加复盘</view>
+      <view class="info_name">导师-Betty</view>
+      <view class="info_exp">BCG | Associate | 60+case经验</view>
+      <view class="info_num">订单编号：236874632946237</view>
+    </view>
+    <view class="inline more_icon_style">
+      <image src="/images/ui/more.png" class="more_icon"></image>
+    </view>
+  </view>
+
+  <!-- 边界 -->
+  <view class="border"></view>
+</view>
+
+<view wx:for='{{completeOrderNumber}}' wx:key='index' hidden="{{!status3}}">
+  <view class="head" bindtap="switchToUserOrderComplete">
+    <view class="inline" >
+      <image src="/images/ui/pic1.png" class="pic"></image>
+    </view>
+    <view class="inline head_words">
+      <view class="info_title">咨询-单次模拟面试加复盘</view>
+      <view class="info_name">导师-Betty</view>
+      <view class="info_exp">BCG | Associate | 60+case经验</view>
+      <view class="info_num">订单编号：236874632946237</view>
+    </view>
+    <view class="inline more_icon_style">
+      <image src="/images/ui/more.png" class="more_icon"></image>
+    </view>
+  </view>
+
+  <!-- 边界 -->
+  <view class="border"></view>
+</view>

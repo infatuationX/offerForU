@@ -1,0 +1,120 @@
+<!--pages/user_order_complete/user_order_complete.wxml-->
+<view>
+  <view class="progress">
+    <view class="progress_title_blue">预约完成</view>
+    <view class="progress_title_blue">导师确认</view>
+    <view class="progress_title_blue">指导进行</view>
+    <view class="progress_title_blue">评价</view>
+  </view>
+  <!-- 进度条 -->
+  <view class="progress_bar">
+    <view class="point_blue"></view>
+    <view class="line_blue"></view>
+    <view class="line_blue"></view>
+    <view class="point_blue"></view>
+    <view class="line_blue"></view>
+    <view class="line_blue"></view>
+    <view class="point_blue"></view>
+    <view class="line_blue"></view>
+    <view class="line_blue"></view>
+    <view class="point_blue"></view>
+  </view>
+</view>
+
+<view class="head">
+  <view class="inline">
+    <image src="/images/ui/pic1.png" class="pic"></image>
+  </view>
+  <view class="inline head_words">
+    <view class="info_title">咨询-单次模拟面试加复盘</view>
+    <view class="info_name">导师-Betty</view>
+    <view class="info_exp">BCG | Associate | 60+case经验</view>
+    <view class="info_price">订单费用：
+      <text style="color:#03A7F0">￥247</text>
+    </view>
+  </view>
+</view>
+
+<!-- 分割线 -->
+<view class="border"></view>
+
+<view class="need">
+  <view class="need_title">学员能力诊断</view>
+  <view class="need_detail">这次case你做得很不错，但是希望你能够加强自己的business insight，可以多关注36氪等公众号，有任何问题可以再交流
+  </view>
+</view>
+
+<!-- 评分区域 -->
+<view class="rank_all">
+  <view class="rank">
+    <view class="rank_item">逻辑性</view>
+    <view class="rank_item">沟通交流 </view>
+    <view class="rank_item">商业嗅觉</view>
+  </view>
+  <view class="rank">
+    <view class="rank_item">
+      <view wx:for="{{starRank}}" wx:key="index" class="star_style">
+        <image src="/images/ui/star_solid.png" class="star"></image>
+      </view>
+    </view>
+    <view class="rank_item">
+      <view wx:for="{{starRank}}" wx:key="index" class="star_style">
+        <image src="/images/ui/star_solid.png" class="star"></image>
+      </view>
+    </view>
+    <view class="rank_item">
+      <view wx:for="{{starRank}}" wx:key="index" class="star_style">
+        <image src="/images/ui/star_solid.png" class="star"></image>
+      </view>
+    </view>
+  </view>
+</view>
+
+<view class="border"></view>
+
+<view class="need">
+  <view class="need_title">导师评价</view>
+</view>
+
+<!-- 评分区域 -->
+<view class="rank_all">
+  <view class="rank">
+    <view class="rank_item">响应速度</view>
+    <view class="rank_item">专业性 </view>
+    <view class="rank_item">态度友好</view>
+  </view>
+  <view class="rank">
+    <view class="rank_item">
+      <view wx:for="{{starRank}}" wx:key="index" class="star_style">
+        <image src="/images/ui/star_solid.png" class="star"></image>
+      </view>
+    </view>
+    <view class="rank_item">
+      <view wx:for="{{starRank}}" wx:key="index" class="star_style">
+        <image src="/images/ui/star_solid.png" class="star"></image>
+      </view>
+    </view>
+    <view class="rank_item">
+      <view wx:for="{{starRank}}" wx:key="index" class="star_style">
+        <image src="/images/ui/star_solid.png" class="star"></image>
+      </view>
+    </view>
+  </view>
+</view>
+<view class="border"></view>
+
+<view class="need">
+  <view class="payment">实付款:
+    <view class="point_small" wx:for='{{pointNumber}}' wx:key='index'></view>
+    <text style="color:#03A7F0">￥234</text>
+  </view>
+</view>
+
+<view class="button_all" hidden="{{conformFlag}}">
+  <view class="cancel_button">
+    <button open-type="contact">联系客服</button>
+  </view>
+  <view class="change_button">
+    <button bindtap="switchToRank">评价导师</button>
+  </view>
+</view>

@@ -1,0 +1,97 @@
+<!--pages/rank/rank.wxml-->
+<view class="head">
+  <view class="inline">
+    <image src="/images/ui/pic1.png" class="pic"></image>
+  </view>
+  <view class="inline head_words">
+    <view class="info_title">咨询-单次模拟面试加复盘</view>
+    <view class="info_name">导师-Betty</view>
+    <view class="info_exp">BCG | Associate | 60+case经验</view>
+    <view class="info_price">订单费用：
+      <text style="color:#03A7F0">￥247</text>
+    </view>
+  </view>
+</view>
+
+<view class="border"></view>
+
+
+<view class="need">
+  <view class="need_title">对导师进行评价</view>
+
+
+  <!-- 评分区域 -->
+
+  <view class="rank">
+    <view class="rank_item">响应速度</view>
+    <view class="rank_item star_all">
+      <view class="star_style" bindtap="rank" data-index="1">
+        <image src="{{starFlag1?'/images/ui/star_gray.png':'/images/ui/star_solid.png'}}" class="star"></image>
+      </view>
+      <view class="star_style" bindtap="rank" data-index="2">
+        <image src="{{starFlag2?'/images/ui/star_gray.png':'/images/ui/star_solid.png'}}" class="star"></image>
+      </view>
+      <view class="star_style" bindtap="rank" data-index="3">
+        <image src="{{starFlag3?'/images/ui/star_gray.png':'/images/ui/star_solid.png'}}" class="star"></image>
+      </view>
+      <view class="star_style" bindtap="rank" data-index="4">
+        <image src="{{starFlag4?'/images/ui/star_gray.png':'/images/ui/star_solid.png'}}" class="star"></image>
+      </view>
+      <view class="star_style" bindtap="rank" data-index="5">
+        <image src="{{starFlag5?'/images/ui/star_gray.png':'/images/ui/star_solid.png'}}" class="star"></image>
+      </view>
+    </view>
+  </view>
+  <view class="rank1">
+    <view class="rank_item">专业性
+      <text decode="true">&nbsp;&nbsp;</text>
+    </view>
+    <view class="rank_item star_all">
+      <view class="star_style" bindtap="rank" data-index="6">
+        <image src="{{starFlag6?'/images/ui/star_gray.png':'/images/ui/star_solid.png'}}" class="star"></image>
+      </view>
+      <view class="star_style" bindtap="rank" data-index="7">
+        <image src="{{starFlag7?'/images/ui/star_gray.png':'/images/ui/star_solid.png'}}" class="star"></image>
+      </view>
+      <view class="star_style" bindtap="rank" data-index="8">
+        <image src="{{starFlag8?'/images/ui/star_gray.png':'/images/ui/star_solid.png'}}" class="star"></image>
+      </view>
+      <view class="star_style" bindtap="rank" data-index="9">
+        <image src="{{starFlag9?'/images/ui/star_gray.png':'/images/ui/star_solid.png'}}" class="star"></image>
+      </view>
+      <view class="star_style" bindtap="rank" data-index="10">
+        <image src="{{starFlag10?'/images/ui/star_gray.png':'/images/ui/star_solid.png'}}" class="star"></image>
+      </view>
+    </view>
+  </view>
+
+  <view class="rank1">
+    <view class="rank_item">态度友好</view>
+    <view class="rank_item star_all">
+      <view class="star_style" bindtap="rank" data-index="11">
+        <image src="{{starFlag11?'/images/ui/star_gray.png':'/images/ui/star_solid.png'}}" class="star"></image>
+      </view>
+      <view class="star_style" bindtap="rank" data-index="12">
+        <image src="{{starFlag12?'/images/ui/star_gray.png':'/images/ui/star_solid.png'}}" class="star"></image>
+      </view>
+      <view class="star_style" bindtap="rank" data-index="13">
+        <image src="{{starFlag13?'/images/ui/star_gray.png':'/images/ui/star_solid.png'}}" class="star"></image>
+      </view>
+      <view class="star_style" bindtap="rank" data-index="14">
+        <image src="{{starFlag14?'/images/ui/star_gray.png':'/images/ui/star_solid.png'}}" class="star"></image>
+      </view>
+      <view class="star_style" bindtap="rank" data-index="15">
+        <image src="{{starFlag15?'/images/ui/star_gray.png':'/images/ui/star_solid.png'}}" class="star"></image>
+      </view>
+    </view>
+  </view>
+</view>
+<view class="textarea">
+  <textarea class="textarea_style" placeholder="还想对导师说..." placeholder-class="textarea_placeholder"></textarea>
+</view>
+
+<view class="border"></view>
+
+<view class="button_buttom" bindtap="switchToUserOrder">
+  <button class="submit_button">提交</button>
+</view>

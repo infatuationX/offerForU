@@ -1,0 +1,129 @@
+<!--pages/user_order_info/user_order_info.wxml-->
+<view hidden="{{conformFlag}}">
+  <view class="progress">
+    <view class="progress_title_blue">预约完成</view>
+    <view class="progress_title_gray">导师确认</view>
+    <view class="progress_title_gray">指导进行</view>
+    <view class="progress_title_gray">评价</view>
+  </view>
+
+  <!-- 进度条 -->
+  <view class="progress_bar">
+    <view class="point_blue"></view>
+    <view class="line_blue"></view>
+    <view class="line_gray"></view>
+    <view class="point_gray"></view>
+    <view class="line_gray"></view>
+    <view class="line_gray"></view>
+    <view class="point_gray"></view>
+    <view class="line_gray"></view>
+    <view class="line_gray"></view>
+    <view class="point_gray"></view>
+  </view>
+</view>
+
+<view hidden="{{!conformFlag}}">
+  <view class="progress">
+    <view class="progress_title_blue">预约完成</view>
+    <view class="progress_title_blue">导师确认</view>
+    <view class="progress_title_blue">指导进行</view>
+    <view class="progress_title_gray">评价</view>
+  </view>
+  <!-- 进度条 -->
+  <view class="progress_bar">
+    <view class="point_blue"></view>
+    <view class="line_blue"></view>
+    <view class="line_blue"></view>
+    <view class="point_blue"></view>
+    <view class="line_blue"></view>
+    <view class="line_blue"></view>
+    <view class="point_blue"></view>
+    <view class="line_blue"></view>
+    <view class="line_gray"></view>
+    <view class="point_gray"></view>
+  </view>
+</view>
+
+
+
+<view class="head">
+  <view class="inline">
+    <image src="/images/ui/pic1.png" class="pic"></image>
+  </view>
+  <view class="inline head_words">
+    <view class="info_title">咨询-单次模拟面试加复盘</view>
+    <view class="info_name">导师-Betty</view>
+    <view class="info_exp">BCG | Associate | 60+case经验</view>
+    <view class="info_price">订单费用：
+      <text style="color:#03A7F0">￥247</text>
+    </view>
+  </view>
+</view>
+
+<!-- 分割线 -->
+<view class="border"></view>
+
+<view class="need" hidden="{{rejectFlag}}">
+  <view class="need_title">需求细节</view>
+  <view class="need_detail">请同学把想要请教导师的细节问题补充清楚，方便导师提前了解你的情况并做针对性的准备 请同学把想要请教导师的细节问题补充清楚，方便导师提前了解你的情况并做针对性的准备请同学把想要请教导师的细节问题补充清楚，方便导师提前了解你的情况并做针对性的准备
+  </view>
+</view>
+
+<view class="border" hidden="{{rejectFlag}}"></view>
+
+
+<view class="need">
+  <view class="need_title">已选时间</view>
+  <view class="time" wx:for='{{timeSelected}}' wx:key='index'>
+    <text style="color:#03A7F0">•</text>{{timeSelected[index]}}</view>
+</view>
+
+<view class="border"></view>
+
+<view class="need" hidden="{{rejectFlag}}">
+  <view class="need_title">学员简历<text class = 'image_note'>点击图片查看简历</text></view>
+  <view class="upload_pic">
+    <image src='/images/ui/pic1.png' class="upload_image_style"></image>
+    <image src='/images/ui/pic1.png' class="upload_image_style"></image>
+  </view>
+</view>
+
+<view class="border" hidden="{{rejectFlag}}"></view>
+
+<view class="need" hidden="{{rejectFlag}}">
+  <view class="need_title">会议连接</view>
+  <view class="link_note" hidden="{{conformFlag}}">（导师确认后即可在此查看会议链接）</view>
+  <view class="zoom_link" hidden="{{!conformFlag}}" bindlongtap="copyLink">{{zoomLink}}</view>
+</view>
+
+<view class="border" hidden="{{rejectFlag}}"></view>
+
+<view class="need" hidden="{{!rejectFlag}}">
+  <view class="reject_reason_title">导师未接受订单原因</view>
+  <view class="reject_reason">“抱歉，最近没有合适时间”</view>
+  <view class="reject_reason1">Betty老师为你提供了她合适的时间</view>
+  <view class="reject_time">[2020.02.22 10:00-12:00]</view>
+  <view class="reject_reason1">您可以点击修改订单重新选择时间</view>
+</view>
+<view class="border" hidden="{{!rejectFlag}}"></view>
+
+
+<view class="need">
+  <view class="payment">实付款:
+    <view class="point_small" wx:for='{{pointNumber}}' wx:key='index'></view>
+    <text style="color:#03A7F0">￥234</text>
+  </view>
+</view>
+
+<view class="button_all" hidden="{{conformFlag}}">
+  <view class="cancel_button">
+    <button bindtap="switchToCancelOrder">取消订单</button>
+  </view>
+  <view class="change_button">
+    <button>修改订单</button>
+  </view>
+</view>
+
+<view class="button_all" hidden="{{!conformFlag}}">
+  <button open-type="contact" class="contact_button">联系客服</button>
+</view>

@@ -1,0 +1,51 @@
+<!--pages/supervisor_reject_order/supervisor_reject_order.wxml-->
+<view class="head">
+  <view class="inline">
+    <image src="/images/ui/pic1.png" class="pic"></image>
+  </view>
+  <view class="inline head_words">
+    <view class="info_title">咨询-单次模拟面试加复盘</view>
+    <view class="info_name">导师-Betty</view>
+    <view class="info_exp">BCG | Associate | 60+case经验</view>
+    <view class="info_price">订单编号：213781264836484</view>
+  </view>
+</view>
+
+<!-- 分割线 -->
+<view class="border"></view>
+
+<view class="need">
+  <view class="need_title">取消理由</view>
+  <radio-group bindchange="radioChange">
+    <view class="filter_item">
+      <radio class="radio_rewrite" value="1">时间不合适</radio>
+    </view>
+     <view class="filter_item">
+      <radio class="radio_rewrite" value="2">最近不想说话…</radio>
+    </view>
+     <view class="filter_item">
+      <radio class="radio_rewrite" value="3">学员的指导需求无法满足</radio>
+    </view>
+    <view class="filter_item">
+      <radio class="radio_rewrite" value="4">其他</radio>
+    </view>
+  </radio-group>
+</view>
+
+<view class="border"></view>
+
+<view class="need">
+  <view class="need_title">愿意提供可用时间</view>
+  <view class="textarea"><textarea class="textarea_style" placeholder="如果学员提供时间不合适，请您在此输入最近有空的几个时间段（精确到小时），方便学员再次下单" placeholder-class="placeholder_style"></textarea>
+  </view>
+</view>
+<view class="border"></view>
+<view class="need">
+  <view class="payment">指导报酬:
+    <view class="point_small" wx:for='{{pointNumber}}' wx:key='index'></view>
+    <text style="color:#03A7F0">￥234</text>
+  </view>
+</view>
+<view class="need">
+<button class="submit_button" bindtap="sumbit">提交</button>
+</view>

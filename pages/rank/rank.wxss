@@ -1,0 +1,136 @@
+/* pages/rank/rank.wxss */
+.pic{
+  width: 190rpx;
+  height: 146rpx;
+  border-radius: 5px;
+}
+
+.inline{
+  display: inline-block;
+}
+
+/* 详情头部 */
+.head{
+  margin-left: 80rpx;
+  margin-top: 54rpx;
+}
+/* 文字图片间距 */
+.head_words{
+  margin-left: 28rpx;
+}
+
+/* 详情标题 */
+.info_title{
+  font-size: 28rpx;
+  font-weight: bold;
+}
+
+/* 导师名字 */
+.info_name{
+  font-size: 24rpx;
+  margin-top: 10rpx;
+  font-weight: bold;
+}
+
+/* 导师经验 */
+.info_exp{
+  font-size: 20rpx;
+  color: #888888;
+}
+
+/* 导师报价 */
+.info_price{
+  font-size: 20rpx;
+  margin-top: 14rpx;
+}
+
+/* 边界 */
+.border{
+  margin: 40rpx 80rpx;
+  border: 1px solid #F3F3F3;
+}
+
+/* 需求 */
+.need{
+  margin: 0 80rpx;
+}
+
+.need_title{
+  font-size: 28rpx;
+  font-weight: bold;
+}
+
+.need_detail{
+  font-size: 24rpx;
+  color: #565656;
+  margin-top: 16rpx;
+}
+
+/* 评分 */
+.rank{
+  margin-top: 24rpx;
+}
+
+.rank_item{
+  display: inline-block;
+  font-size: 24rpx;
+  vertical-align: middle;
+  align-items: center;
+  height: 40rpx;
+}
+
+.rank1{
+  margin-top: 10rpx;
+}
+
+
+/* 评分星星 */
+.star{
+  width: 36rpx;
+  height: 36rpx;
+}
+
+.star_style{
+  display: inline-block;
+  margin-left: 16rpx;
+}
+
+.star_all{
+  position: absolute;
+  left: 200rpx;
+  vertical-align: middle;
+  align-items: center;
+}
+
+
+/* 输入框 */
+.textarea_style{
+  background-color: #F7F7F7;
+  font-size: 28rpx;
+  padding: 12rpx 24rpx;
+  margin: 18rpx 0rpx;
+  width: 542rpx;
+  height: 300rpx;
+}
+
+.textarea_placeholder{
+  font-size: 24rpx;
+  color: #B2B2B2;
+}
+
+.textarea{
+  margin: 40rpx 80rpx 0 80rpx;
+}
+
+/* 提交按钮 */
+.submit_button{
+  background-color: #03A7F0;
+  color: white;
+}
+
+.button_buttom{
+  position: fixed;
+  width: 590rpx;
+  bottom: 90rpx;
+  left: 80rpx;
+}

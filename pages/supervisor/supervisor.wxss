@@ -1,0 +1,325 @@
+/* pages/supervisor/supervisor.wxss */
+
+page {
+  background-color: #f7f7f7;
+}
+
+/* 搜索框 */
+
+.searchbox {
+  background-color: white;
+  height: 64rpx;
+  width: 558rpx;
+  padding: 0 20rpx;
+  border-top-left-radius: 3px;
+  border-bottom-left-radius: 3px;
+}
+
+.search_item {
+  display: inline-block;
+  vertical-align:top;
+} 
+
+/* 搜索按钮 */
+
+.search_button {
+  height: 64rpx;
+  width: 72rpx;
+  border: 0;
+  border-radius: 0;
+  padding: 0;
+}
+
+/* 搜索按钮图片 */
+
+.button_image {
+  height: 64rpx;
+  width: 72rpx;
+}
+
+.search_button::after {
+  border: none;
+}
+
+/* 搜索框placeholder文字 */
+
+.searchbox_placeholder {
+  font-size: 28rpx;
+  color: #888;
+}
+
+/* 搜索框总样式 */
+
+.search_all {
+  background-color: #f7f7f7;
+  z-index:20;
+}
+
+/* 搜索框左右间距 */
+
+.search_style {
+  margin: 12rpx 40rpx 12rpx 40rpx;
+}
+
+/* 检索框 */
+
+.filter {
+  display: table;
+  width: 100%;
+  z-index: 20;
+}
+
+.filter2 {
+  display: table;
+  width: 100%;
+  z-index: 20;
+  margin-bottom: 14rpx;
+}
+
+
+.filter_title {
+  display: table-cell;
+  text-align: center;
+  font-size: 28rpx;
+}
+
+/* 向下三角 */
+
+.triangle_down {
+  display: inline-block;
+  position: relative;
+  top: 6rpx;
+  margin-left: 10rpx;
+  width: 0;
+  height: 0;
+  border: 10rpx solid transparent;
+  border-top-color: #b2b2b2;
+}
+
+/* 向上三角 */
+
+.triangle_up {
+  display: inline-block;
+  position: relative;
+  bottom: 6rpx;
+  margin-left: 10rpx;
+  width: 0;
+  height: 0;
+  border: 10rpx solid transparent;
+  border-bottom-color: #b2b2b2;
+}
+
+/* 向上空心三角 */
+
+/* .triangle_up_hollow {
+  width: 0;
+  height: 0;
+  border: 10px solid;
+  border-color: transparent #b2b2b2 transparent transparent;
+  position: relative;
+  transform: rotate(90deg);
+}
+
+.triangle_up_hollow::after {
+  content: '';
+  position: absolute;
+  right: -12px;
+  bottom: -10px;
+  border: 10px solid;
+  border-color: transparent #f7f7f7 transparent transparent;
+}
+
+.triangle{
+  display: inline-block;
+} */
+
+/* 分割线 */
+
+.separator {
+  width: 750rpx;
+  height: 28rpx;
+}
+
+/* 咨询具体项目 */
+
+.filter_item_all {
+  margin: 34rpx 0 34rpx 60rpx;
+}
+
+.filter_item {
+  font-size: 28rpx;
+  margin-top: 32rpx;
+}
+
+/* 重写checkbox样式 */
+
+.checkbox_rewrite .wx-checkbox-input {
+  width: 28rpx;
+  height: 28rpx;
+}
+
+.checkbox_rewrite .wx-checkbox-input.wx-checkbox-input-checked {
+  border: 2rpx solid transparent;
+  background-color: #03a7f0;
+  color: white;
+}
+
+/* 边框 */
+
+.filter_item_border {
+  border-bottom: 1px solid #d9d9d9;
+}
+
+.filter_button {
+  display: table-cell;
+  align-items: center;
+  padding: 30rpx 0;
+}
+
+.filter_button_all {
+  display: table;
+  width: 100%;
+}
+
+/* 重置按钮 */
+
+.reset_button {
+  background-color: white;
+  color: #888;
+  width: 262rpx;
+}
+
+/* 确认按钮 */
+
+.conform_button {
+  background-color: #03a7f0;
+  color: white;
+  width: 262rpx;
+}
+
+/* 遮罩样式 */
+.mask{
+  width:100%;
+  height:80%;
+  position:fixed;
+  background-color:#303133;
+  z-index:10;
+  bottom:0;
+  left:0;
+  opacity:0.5;
+}
+
+.filter_detail_all{
+  position: fixed;
+  z-index:20;
+  background-color: #f7f7f7;
+}
+/* 防遮挡透明块 */
+.transparent_block{
+  height: 150rpx;
+}
+
+/* 导师列表样式 */
+.supervisor_all{
+  background-color: white;
+  border-bottom: 1px solid #f7f7f7;
+  padding-top: 34rpx;
+}
+
+/* 导师头像 */
+.profile_photo{
+  width: 114rpx;
+  height: 114rpx;
+  border-radius: 50%;
+}
+
+/* 导师信息并排 */
+.supervisor_item_margin{
+  display: inline-block;
+}
+
+/* 评分信息 */
+.star{
+  width: 26rpx;
+  height: 26rpx;
+  margin-right: 4rpx;
+}
+
+/* 信息对齐 */
+.supervisor_item_all{
+  margin: 0rpx 60rpx 32rpx 50rpx;
+}
+
+/* 头像与文字 */
+.supervisor_item_info_margin{
+  margin-left: 20rpx;
+}
+
+/* 导师名字 */
+.profile_name{
+  font-size: 40rpx;
+}
+/* 导师类别 */
+.profile_type{
+  font-size: 20rpx;
+}
+
+/* 导师报价 */
+.price{
+  font-size: 24rpx;
+  color: #03A7F0;
+  position: absolute;
+  right: 80rpx;
+  padding-top: 20rpx;
+}
+
+/* 职位 */
+.profile_position{
+  color: #888888;
+  font-size: 24rpx;
+}
+
+/* 求职经历 */
+.profile_exp_title{
+  font-size: 24rpx;
+  width: 118rpx;
+}
+
+.profile_exp{
+  font-size: 24rpx;
+  width: 506rpx;
+  margin-left: 16rpx;
+}
+
+.profile_exp_all{
+  align-items: flex-start;
+  display: flex;
+  margin-top: 6rpx;
+}
+
+.profile_exp_separator{
+  margin-left: 8rpx;
+}
+
+/* 导师关键词 */
+.profile_key{
+  display: inline-block;
+  font-size: 24rpx;
+  color: #B2B2B2;
+  border: 1px solid #B2B2B2;
+  border-radius: 10px;
+  padding: 4rpx 16rpx;
+  margin-right: 14rpx;
+  margin-top: 18rpx;
+}
+
+.profile_key_scroll{
+  white-space: nowrap;
+}
+
+/* 取消滚动条 */
+::-webkit-scrollbar{
+    width: 0;
+    height: 0;
+    color: transparent;
+}

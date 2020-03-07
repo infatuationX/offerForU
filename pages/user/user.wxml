@@ -1,0 +1,65 @@
+<!--pages/user/user.wxml-->
+<!-- 重写导航栏 -->
+<navigationBar title="{{title}}"></navigationBar>
+
+<!-- 背景图 -->
+<view>
+  <image src="/images/ui/supervisor_background.png" class="profile_background"></image>
+</view>
+
+<!-- 个人头像昵称 -->
+<view class="user_profile_photo">
+  <open-data type="userAvatarUrl"></open-data>
+</view>
+<view class="user_profile_nickname">
+  <open-data type="userNickName" lang="zh_CN"></open-data>
+</view>
+
+<!-- 占位块 -->
+<view class="white_block"></view>
+
+<!-- 我的预约 -->
+<view bindtap="switchToMyOrder">
+  <view class="inline my_order">我的预约</view>
+  <view class="inline">
+    <view class="message_number">3</view>
+  </view>
+  <view class="inline more_icon_style">
+    <image src="/images/ui/more.png" class="more_icon"></image>
+  </view>
+</view>
+
+<!-- 边界 -->
+<view class="border"></view>
+
+<!-- 成为导师 -->
+<view bindtap="switchToApply">
+  <view class="inline my_order">成为导师</view>
+  <view class="inline more_icon_style">
+    <image src="/images/ui/more.png" class="more_icon"></image>
+  </view>
+</view>
+<!-- 边界 -->
+<view class="border"></view>
+
+<!-- 在线客服 -->
+<view>
+  <view class="inline my_order">
+  <button open-type="contact" class="contact_button">在线客服</button>
+  </view>
+  <view class="inline more_icon_style">
+    <image src="/images/ui/more.png" class="more_icon"></image>
+  </view>
+</view>
+<!-- 边界 -->
+<view class="border"></view>
+
+<!-- 成为导师 -->
+<view>
+  <view class="inline my_order">常见问题解答</view>
+  <view class="inline more_icon_style">
+    <image src="/images/ui/more.png" class="more_icon"></image>
+  </view>
+</view>
+<!-- 边界 -->
+<view class="border"></view>

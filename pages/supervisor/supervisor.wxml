@@ -1,0 +1,125 @@
+<!--pages/supervisor/supervisor.wxml-->
+<!-- 搜索框 -->
+
+<view class="filter_detail_all" catchtouchmove="passMove">
+  <view class="search_all">
+    <view class="search_style">
+      <!-- 输入框 -->
+      <view class="search_item">
+        <input placeholder="搜索导师、公司" class="searchbox" placeholder-class="searchbox_placeholder"></input>
+      </view>
+      <!-- 搜索按钮 -->
+      <view class="search_item" bindtap="searchButtonClick">
+        <button class="search_button">
+          <image src="/images/ui/search_logo.png" class="button_image"></image>
+        </button>
+      </view>
+    </view>
+  </view> 
+
+  <!-- 检索栏 -->
+  <view class="{{triangleFlag1&&triangleFlag2&&triangleFlag3?'filter2':'filter'}}">
+    <view class="filter_title" bindtap="filterIndustry">行业
+      <text class="{{triangleFlag1?'triangle_down':'triangle_up'}}"></text>
+    </view>
+    <view class="filter_title" bindtap="filterCompany">公司
+      <text class="{{triangleFlag2?'triangle_down':'triangle_up'}}"></text>
+    </view>
+    <view class="filter_title" bindtap="filterRank">职级
+      <text class="{{triangleFlag3?'triangle_down':'triangle_up'}}"></text>
+    </view>
+  </view>
+
+  <!-- 分割线 -->
+  <!-- 左 -->
+
+  <view hidden="{{triangleFlag1}}">
+    <image src="{{separatorUrl}}" class="separator"></image>
+  </view>
+  <!-- 中 -->
+  <view hidden="{{triangleFlag2}}">
+    <image src="{{separatorUrl}}" class="separator"></image>
+  </view>
+  <!-- 右 -->
+  <view hidden="{{triangleFlag3}}">
+    <image src="{{separatorUrl}}" class="separator"></image>
+  </view>
+  <!-- 空心三角箭头
+<view>
+  <view class="triangle_up_hollow "></view>
+  <view class="triangle_up_hollow "></view>
+  <view class="triangle_up_hollow "></view>
+</view> -->
+
+  <view class="filter_item_border" hidden="{{triangleFlag1}}">
+    <view class="filter_item_all">
+      <checkbox-group>
+        <view class="filter_item">
+          <checkbox class="checkbox_rewrite" checked="{{checkFlag}}">麦肯锡咨询McKinsy</checkbox>
+        </view>
+        <view class="filter_item">
+          <checkbox class="checkbox_rewrite" checked="{{checkFlag}}">波士顿咨询BCG</checkbox>
+        </view>
+        <view class="filter_item">
+          <checkbox class="checkbox_rewrite" checked="{{checkFlag}}">贝恩咨询Bain</checkbox>
+        </view>
+        <view class="filter_item">
+          <checkbox class="checkbox_rewrite" checked="{{checkFlag}}">思略特咨询Strategy&J</checkbox>
+        </view>
+        <view class="filter_item">
+          <checkbox class="checkbox_rewrite" checked="{{checkFlag}}">摩立特咨询Monitor</checkbox>
+        </view>
+      </checkbox-group>
+    </view>
+  </view>
+
+  <!-- 重制、确定按钮 -->
+  <view class="filter_button_all" hidden="{{triangleFlag1}}">
+    <view class="filter_button">
+      <button class="reset_button" bindtap="resetClick">重置</button>
+    </view>
+    <view class="filter_button">
+      <button class="conform_button" bindtap="conformClick">确定</button>
+    </view>
+  </view>
+</view>
+<!-- 遮罩 -->
+<view class='mask' hidden="{{triangleFlag1}}" catchtouchmove="passMove"></view>
+
+<!-- 透明块防遮挡 -->
+<view class="transparent_block"></view>
+
+<!-- 导师列表 -->
+<view class="supervisor_all" wx:for="{{supervisor.supervisor}}" wx:key="index" bindtap="switchToInfoPage">
+  <view class="supervisor_item_all">
+    <!-- 头像 -->
+    <view class="supervisor_item_margin">
+      <image src="/images/ui/profile_photo.png" class="profile_photo"></image>
+    </view>
+    <!-- 文字信息 -->
+    <view class="supervisor_item_margin supervisor_item_info_margin">
+      <view class="profile_name">{{supervisor.supervisor[index].name}}
+        <text class="profile_type">[{{supervisor.supervisor[index].serviceArea}}]</text>
+        <text class="price">{{supervisor.supervisor[index].price}}元/h</text>
+      </view>
+      <view>
+        <image wx:for="{{supervisor.supervisor[index].rank}}" src="/images/ui/star_solid.png" class="star"></image>
+      </view>
+      <view class="profile_position">{{supervisor.supervisor[index].position}}
+        <text>| 服务订单 {{supervisor.supervisor[index].completeOrderNum}}</text>
+      </view>
+    </view>
+    <view class="profile_exp_all">
+      <view class="supervisor_item_margin profile_exp_title">求职经历
+        <text class="profile_exp_separator">|</text>
+      </view>
+      <view class="supervisor_item_margin profile_exp">{{supervisor.supervisor[index].experience}}</view>
+    </view>
+    <!-- 关键词标签 -->
+    <view>
+      <scroll-view scroll-x = "true" class="profile_key_scroll">
+        <view wx:for="{{supervisor.supervisor[index].key}}" class="profile_key">{{item}}</view>
+      </scroll-view>
+    </view>
+  </view>
+</view> 

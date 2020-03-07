@@ -1,0 +1,280 @@
+/* pages/apply/apply.wxss */
+
+.profile_background{
+  width: 100%;
+  height: 272rpx;
+  position: fixed;
+  top:0;
+  z-index: 99;
+}
+
+/* 头像 */
+.profile_photo{
+  width: 140rpx;
+  height: 140rpx;
+  border-radius: 50%;
+} 
+
+/* 头像对齐 */
+.profile_photo_style{
+  position: fixed;
+  left: 0;
+  right: 0;
+  top:200rpx;
+  text-align: center;
+  z-index: 100;
+}
+
+
+/* 白色遮挡块 */
+.white_block{
+  position: fixed;
+  height: 100rpx;
+  width: 100%;
+  top:272rpx;
+  background-color: white;
+  z-index: 99;
+}
+
+/* 申请 */
+.apply_all{
+  margin: 380rpx 80rpx 0 80rpx;
+}
+
+/* 需求 */
+.requirements{
+  color: #888888;
+  font-size: 24rpx;
+}
+
+/* 个人资料 */
+.apply_profile_title{
+  font-size: 32rpx;
+  margin-top: 50rpx;
+}
+
+.input{
+  font-size: 28rpx;
+  border-bottom: 1px solid #F3F3F3;
+  width: 100%;
+}
+
+.inline{
+  display: inline-block;
+}
+
+/* 真实姓名大 */
+.name_title{
+  font-size: 28rpx;
+  color: #B2B2B2;
+  border-bottom: 1px solid #F3F3F3;
+  margin-top: 40rpx;
+  height: 47rpx;
+}
+
+/* 真实姓名小 */
+
+.name_title1{
+  font-size: 20rpx;
+  color: #B2B2B2;
+  margin-top: 30rpx;
+}
+
+/* 个人介绍 */
+.introduce_title{
+  font-size: 28rpx;
+  color: #888888;
+  margin-top: 40rpx;
+}
+
+.introduce_title2{
+  font-size: 28rpx;
+  color: #888888;
+}
+
+/* 个人介绍输入区 */
+.introduce_textarea{
+  height: 176rpx;
+  width: 542rpx;
+  margin-top: 16rpx;
+  padding: 12rpx 24rpx;
+  background-color: #F7F7F7;
+  font-size: 28rpx;
+  z-index: 0;
+}
+
+.introduce_textarea_placeholder{
+  color: #B2B2B2;
+  font-size: 24rpx;
+  z-index: 0;
+}
+
+.border{
+  border: 1px solid #F3F3F3;
+  margin: 30rpx 0;
+}
+
+.shiningpoints_textarea{
+  height: 106rpx;
+  width: 542rpx;
+  margin-top: 16rpx;
+  padding: 12rpx 24rpx;
+  background-color: #F7F7F7;
+  font-size: 28rpx;
+  z-index: 0;
+
+}
+
+/* 单选框 */
+.radio_style{
+  margin-top: 20rpx;
+  border-bottom: 1px solid #F3F3F3;
+  font-size: 28rpx;
+}
+
+/* 重写单选框样式 */
+.radio_rewrite .wx-radio-input{
+  width: 28rpx;
+  height: 28rpx;
+  border-radius: 5px;
+}
+
+.radio_rewrite .wx-radio-input.wx-radio-input-checked{
+  background-color: #03a7f0;
+  color: white;
+  border: 2rpx solid transparent;
+}
+
+.radio2{
+  margin-left: 190rpx;
+}
+
+/* 时间选择 */
+.select_box{
+ background: #fff;
+ width: 590rpx;
+ margin: 10rpx 0 0 0;
+ position: relative;
+ font-size: 28rpx;
+}
+.select{
+ width: 486rpx;
+ height: 40rpx;
+ border:1px solid #F3F3F3;
+ border-top-left-radius: 5px;
+ border-bottom-left-radius: 5px;
+ display: inline-block;
+ vertical-align: middle;
+ padding: 10rpx 20rpx;
+}
+.select_text{
+ font-size: 28rpx;
+}
+.select_img{
+ width: 60rpx;
+ height: 60rpx;
+ border-top-right-radius: 5px;
+ border-bottom-right-radius: 5px;
+}
+
+.inline{
+  display: inline-block;
+ vertical-align: middle;
+ height: 60rpx;
+ width: 60rpx;
+}
+
+.option_box{
+ position: absolute;
+ top: 62rpx;
+ width: 590rpx;
+ box-sizing: border-box;
+ height: 0;
+ overflow-y: auto;
+ background: #fff;
+ transition: height 0.3s;
+ z-index: 80;
+}
+.option{
+ display: block;
+ line-height: 40rpx;
+ font-size: 28rpx;
+ border: 1px solid #efefef;
+ padding: 10rpx 20rpx;
+ color: #B2B2B2;
+ border-top: 0;
+}
+
+/* 优势输入区域 */
+.advantage_textarea{
+  height: 164rpx;
+  width: 542rpx;
+  margin-top: 16rpx;
+  padding: 12rpx 24rpx;
+  background-color: #F7F7F7;
+  font-size: 28rpx;
+  z-index: 0;
+}
+
+/* 添加指导 */
+.add_service{
+  height: 100rpx;
+  width: 590rpx;
+  border: 1px dashed #D9D9D9;
+  color: #D9D9D9;
+  font-size: 23rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 30rpx;
+}
+
+/* 假placeholder */
+.fake_placeholder{
+  font-size: 24rpx;
+  color: #B2B2B2;
+}
+
+.upload_image{
+  font-size: 28rpx;
+  color: #B2B2B2;
+  margin-top: 30rpx;
+  display: inline-block;
+}
+
+.upload_image1{
+  font-size: 20rpx;
+}
+
+.upload_image2{
+  font-size: 20rpx;
+  color: #03a7f0;
+}
+
+.upload_icon{
+  display: inline-block;
+  width: 34rpx;
+  height: 34rpx;
+  vertical-align: middle;
+}
+
+.submit_button{
+  margin-top: 120rpx;
+  color: white;
+  background-color: #03a7f0;
+}
+
+.navigator{
+  text-decoration: underline;
+  color: #03a7f0;
+  display: inline-block;
+}
+
+.note{
+  color: #888888;
+  font-size: 24rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin:12rpx 0 120rpx 0;
+}

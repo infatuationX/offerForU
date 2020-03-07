@@ -1,0 +1,160 @@
+/* pages/order_fill/order_fill.wxss */
+.pic{
+  width: 190rpx;
+  height: 146rpx;
+  border-radius: 5px;
+}
+
+.inline{
+  display: inline-block;
+}
+
+/* 详情头部 */
+.head{
+  margin-left: 80rpx;
+  margin-top: 54rpx;
+}
+/* 文字图片间距 */
+.head_words{
+  margin-left: 28rpx;
+}
+
+/* 详情标题 */
+.info_title{
+  font-size: 28rpx;
+  font-weight: bold;
+}
+
+/* 导师名字 */
+.info_name{
+  font-size: 24rpx;
+  margin-top: 10rpx;
+  font-weight: bold;
+}
+
+/* 导师经验 */
+.info_exp{
+  font-size: 20rpx;
+  color: #888888;
+}
+
+/* 导师报价 */
+.info_price{
+  font-size: 20rpx;
+  margin-top: 14rpx;
+}
+
+/* 边界 */
+.border{
+  margin: 40rpx 80rpx;
+  border: 1px solid #F3F3F3;
+}
+
+/* 预约时间选择 */
+.select_time_title{
+  font-size: 28rpx;
+  font-weight: bold;
+}
+
+.select_time{
+  margin: 0 80rpx;
+}
+
+/* 具体时间跳转 */
+.navigator_toTimePick{
+  display: inline-block;
+  font-weight: normal;
+  color: #03A7F0;
+  margin-left: 200rpx;
+  font-size: 24rpx;
+}
+
+/* 时间未选择文字 */
+.time_not_select_words{
+  font-size: 24rpx;
+  color: #888888;
+  margin-top: 18rpx;
+}
+
+/* 需求细节填写区域 */
+.textarea{
+  background-color: #F7F7F7;
+  font-size: 28rpx;
+  padding: 12rpx 24rpx;
+  margin: 18rpx 0rpx;
+  width: 542rpx;
+  height: 196rpx;
+}
+
+.textarea_placeholder{
+  font-size: 24rpx;
+}
+
+.upload{
+  display: inline-block;
+  vertical-align: middle;
+}
+
+/* 上传图标 */
+.upload_icon{
+  width: 35rpx;
+  height: 35rpx;
+}
+
+.upload_icon_all{
+  width: 35rpx;
+  height: 35rpx;
+  margin-left: 320rpx;
+}
+
+/* 提交按钮 */
+.submit_button_gray{
+  background-color: #F3F3F3;
+  color: #D9D9D9;
+  width: 590rpx;
+}
+
+.submit_button_blue{
+  background-color: #03A7F0;
+  color: white;
+  width: 590rpx;
+  
+}
+
+/* 条款 */
+.provision{
+  font-size: 24rpx;
+  color: #888888;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* 条款跳转 */
+.provision_navigator{
+  color: #03A7F0;
+  text-decoration: underline;
+}
+
+.time{
+  font-size: 24rpx;
+  display: inline-block;
+  width: 295rpx;
+}
+
+/* 上传照片样式 */
+
+.upload_image_style{
+  width: 590rpx;
+  height: 400rpx;
+}
+
+.uploaded{
+  margin-top: 16rpx;
+}
+
+/* 底部按钮 */
+
+.bottom_button{
+  margin-bottom: 80rpx;
+}

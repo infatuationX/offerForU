@@ -1,0 +1,61 @@
+<!--pages/cancel_order/cancel_order.wxml-->
+<view class="head">
+  <view class="inline">
+    <image src="/images/ui/pic1.png" class="pic"></image>
+  </view>
+  <view class="inline head_words">
+    <view class="info_title">咨询-单次模拟面试加复盘</view>
+    <view class="info_name">导师-Betty</view>
+    <view class="info_exp">BCG | Associate | 60+case经验</view>
+    <view class="info_price">订单费用：
+      <text style="color:#03A7F0">￥247</text>
+    </view>
+  </view>
+</view>
+
+<!-- 分割线 -->
+<view class="border"></view>
+
+
+<!-- 筛选框 -->
+
+
+<view class="filter_item_all">
+  <view class="cancel_title">取消理由</view>
+  <radio-group bindchange="radioChange">
+    <view class="filter_item">
+      <radio class="radio_rewrite">导师迟迟不回复，等不及啦</radio>
+    </view>
+    <view class="filter_item">
+      <radio class="radio_rewrite">导师回复不可接受订单</radio>
+    </view>
+    <view class="filter_item">
+      <radio class="radio_rewrite">想约其他导师</radio>
+    </view>
+    <view class="filter_item">
+      <radio class="radio_rewrite">时间不合适
+        <text class="note">(小提示：可以修改订单哦)</text>
+      </radio>
+    </view>
+    <view class="filter_item">
+      <radio class="radio_rewrite">其他</radio>
+    </view>
+  </radio-group>
+  <view>
+    <textarea class="textarea_style" placeholder="欢迎对平台或导师提出宝贵的建议！" placeholder-class="textarea_placeholder"></textarea>
+  </view>
+</view>
+
+<view class="border"></view>
+
+<!-- 实付款 -->
+<view class="filter_item_all">
+  <view class="payment">实付款:
+    <view class="point_small" wx:for='{{pointNumber}}'></view>
+    <text style="color:#03A7F0">￥234</text>
+  </view>
+</view>
+
+<view class="filter_item_all">
+  <button class="cancel_button" bindtap="conformCancel">提交</button>
+</view>

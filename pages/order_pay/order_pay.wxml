@@ -1,0 +1,56 @@
+<!--pages/order_pay/order_pay.wxml-->
+<view class="progress">
+  <view class="progress_title_blue">订单支付</view>
+  <view class="progress_title_gray">导师确认</view>
+  <view class="progress_title_gray">指导进行</view>
+  <view class="progress_title_gray">评价</view>
+</view>
+
+<!-- 进度条 -->
+<view class="progress_bar">
+  <view class="point_blue"></view>
+  <view class="line_blue"></view>
+  <view class="line_gray"></view>
+  <view class="point_gray"></view>
+  <view class="line_gray"></view>
+  <view class="line_gray"></view>
+  <view class="point_gray"></view>
+  <view class="line_gray"></view>
+  <view class="line_gray"></view>
+  <view class="point_gray"></view>
+</view>
+
+
+<!-- <view class="progress_bar">
+  <view class="point">•</view>
+  <view class="line_blue"></view>
+  <view class="line_gray_short"></view>
+  <view class="point">•</view>
+  <view class="line_gray_long"></view>
+  <view class="point">•</view>
+  <view class="line_gray_long"></view>
+  <view class="point">•</view>
+</view> -->
+
+<view class="head">
+  <view class="inline">
+    <image src="/images/ui/pic1.png" class="pic"></image>
+  </view>
+  <view class="inline head_words">
+    <view class="info_title">咨询-单次模拟面试加复盘</view>
+    <view class="info_name">导师-Betty</view>
+    <view class="info_exp">BCG | Associate | 60+case经验</view>
+    <view class="info_price">订单费用：
+      <text style="color:#03A7F0">￥247</text>
+    </view>
+  </view>
+</view>
+
+<!-- 分割线 -->
+<view class="border"></view>
+
+<view class="notes">•在导师确认订单之前，你可以取消或修改订单</view>
+
+
+<view><button class="conform_pay" bindtap="wechatPayFunction">确认支付</button>
+</view>

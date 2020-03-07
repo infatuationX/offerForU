@@ -1,0 +1,89 @@
+<!--pages/supervisor_info/supervisor_info.wxml-->
+<!-- 自定义导航栏 -->
+<navigationBar title="{{title}}" loading="{{true}}" back="{{true}}" class="navigationBar_style"></navigationBar>
+<!-- 个人背景 -->
+<view class="profile_background_style">
+  <image src="/images/ui/supervisor_background.png" class="profile_background"></image>
+  <view class="white_block"></view>
+</view>
+<!-- 个人头像简介 -->
+<view class="profile_photo_style">
+  <image src="/images/ui/profile_photo.png" class="profile_photo"></image>
+  <view class="profile_bg">
+    <view class="profile_name">Betty</view>
+    <view class="profile_key">BCG | Associate | 60+case经验</view>
+    <view class="profile_key">已完成订单 34</view>
+  </view>
+</view> 
+
+<!-- 占位块 -->
+<view class="placeholder_block"></view>
+<view class="profile_info">毕业于清华大学经济管理学院，在麦肯锡，BCG，高龄资本等多个咨询和投资公司进行实习，2017年入职BCG，曾参与Bain杯案例比赛并获得前10名，有丰富咨询求职准备经验。</view>
+
+<!-- 评分区域 -->
+<view class="rank_all">
+  <view class="rank">
+    <view class="rank_item">响应速度</view>
+    <view class="rank_item">专业性 </view>
+    <view class="rank_item">态度友好</view>
+  </view>
+  <view class="rank">
+    <view class="rank_item">
+      <view wx:for="{{starRank}}" wx:key="index" class="star_style">
+        <image src="/images/ui/star_solid.png" class="star"></image>
+      </view>
+    </view>
+    <view class="rank_item">
+      <view wx:for="{{starRank}}" wx:key="index" class="star_style">
+        <image src="/images/ui/star_solid.png" class="star"></image>
+      </view>
+    </view>
+    <view class="rank_item">
+      <view wx:for="{{starRank}}" wx:key="index" class="star_style">
+        <image src="/images/ui/star_solid.png" class="star"></image>
+      </view>
+    </view>
+  </view>
+</view>
+<!-- 边界 -->
+<view class="border"></view>
+<!-- 指导时间 -->
+
+<view class="time_title">偏好指导时间</view>
+<view class="time">
+  <view class="time_item">
+    <text style="font-weight:bold">·</text>周末</view>
+  <view class="time_item">
+    <text style="font-weight:bold">·</text>工作日10:00-12:00</view>
+  <view class="time_item">
+    <text style="font-weight:bold">·</text>接受两天内的加急指导</view>
+</view>
+
+<!-- 边界 -->
+<view class="border"></view>
+
+<!-- 指导项目 -->
+
+<view class="time_title">指导项目</view>
+<!-- 指导项目细节 -->
+<view class="guidance" wx:for="{{gudianceItem}}" wx:key="index" >
+  <view class="guidance_detail_all" bindtap="switchToOrderDetail">
+    <view class="guidance_item guidance_pic">
+      <image src="/images/ui/pic1.png" class="guidance_pic"></image>
+    </view>
+    <view class="guidance_item guidance_detail_style">
+      <view class="guidance_detail_title">咨询-单次模拟面试加复盘</view>
+      <view class="guidance_detail guidance_detail_type">行业-咨询</view>
+      <view class="guidance_detail guidance_detail_price">247元/h</view>
+    </view>
+    <view class="guidance_item">
+      <image src="/images/ui/more.png" class="more"></image>
+    </view>
+  </view>
+  <view>
+    <button class="book_button" bindtap="switchToOrderFill">立即预约</button>
+  </view>
+</view>
+
+<!-- 到底啦 -->
+<view class="bottom_text">到底啦 :P</view>
